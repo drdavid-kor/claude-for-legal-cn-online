@@ -1,0 +1,20 @@
+{
+  "name": "claude-for-legal-cn-online",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "BYOK online guided-chat tool for China-localized legal skills.",
+  "scripts": {
+    "generate:contexts": "node scripts/generate-contexts.mjs",
+    "predev": "npm run generate:contexts",
+    "dev": "wrangler dev",
+    "predeploy": "npm run generate:contexts",
+    "deploy": "wrangler deploy",
+    "test": "node test/run-tests.mjs",
+    "check": "node test/run-tests.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

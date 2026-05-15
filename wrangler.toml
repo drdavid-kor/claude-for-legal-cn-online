@@ -1,0 +1,8 @@
+name = "claude-for-legal-cn-online"
+compatibility_date = "2025-01-01"
+main = "src/worker.ts"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
