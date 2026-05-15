@@ -137,7 +137,19 @@ Response:
 npm run deploy
 ```
 
-The default deployment target is Cloudflare Workers + Static Assets. `predev`, `predeploy`, and `pretest` regenerate prompt contexts from the submodule.
+For Cloudflare Git deployments, set the project root directory to the repository root and use this deploy command:
+
+```bash
+npm run deploy
+```
+
+If you deploy with a raw Wrangler command in the Cloudflare dashboard, use the explicit form so Wrangler does not try to auto-detect the assets folder from the wrong directory:
+
+```bash
+npx wrangler deploy --config ./wrangler.toml --assets ./public src/worker.ts
+```
+
+The default deployment target is Cloudflare Workers + Static Assets. `predev` and `pretest` regenerate prompt contexts from the submodule. Deployment uses the committed generated files, so Cloudflare does not need to initialize the submodule.
 
 ## Legal Safety
 
