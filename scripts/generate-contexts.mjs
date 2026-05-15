@@ -110,8 +110,14 @@ function parseSkillFrontmatter(markdown) {
   return data;
 }
 
+function firstSentence(text) {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  const match = normalized.match(/^.+?(?:[。！？]|\.\s|\.$)/);
+  return (match ? match[0] : normalized).trim();
+}
+
 function safeDisplayDescription(rawDescription, title, practiceArea) {
-  const fallback = `使用 ${title} 技能处理中国大陆${practiceArea}工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。`;
+  const fallback = `使用 ${title} 技能处理中国大陆${practiceArea}工作流。`;
   if (!rawDescription) return fallback;
 
   const normalized = rawDescription.replace(/\s+/g, " ").trim();
@@ -121,10 +127,7 @@ function safeDisplayDescription(rawDescription, title, practiceArea) {
   // Expert Mode metadata China-first and avoid presenting those as default use.
   if (/\b(Delaware|FRCP|FRE|DMCA|FMLA)\b/i.test(normalized)) return fallback;
 
-  const suffix = "（中国大陆本地化规则优先；外国法仅在明确要求时适用。）";
-  const maxLength = 260;
-  const clipped = normalized.length > maxLength ? `${normalized.slice(0, maxLength - 1)}…` : normalized;
-  return `${clipped}${suffix}`;
+  return firstSentence(normalized);
 }
 
 function buildExpertSkills(skillsRoot) {

@@ -18,8 +18,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "product-legal",
     "pluginTitle": "Product Legal",
     "skillPath": "product-legal/skills/feature-risk-assessment/SKILL.md",
-    "description": "Deeper risk assessment for a single feature or product area when the launch review found something that needs more than a line item. Structured analysis: what could go wrong, how likely, how bad, what mitigates it. Use when user says \"deep dive on this risk\",…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Feature Risk Assessment feature-risk-assessment product-legal 产品合规 Product Legal product-legal/skills/feature-risk-assessment/SKILL.md Deeper risk assessment for a single feature or product area when the launch review found something that needs more than a line item. Structured analysis: what could go wrong, how likely, how bad, what mitigates it. Use when user says \"deep dive on this risk\",…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Deeper risk assessment for a single feature or product area when the launch review found something that needs more than a line item.",
+    "keywords": "Feature Risk Assessment feature-risk-assessment product-legal 产品合规 Product Legal product-legal/skills/feature-risk-assessment/SKILL.md Deeper risk assessment for a single feature or product area when the launch review found something that needs more than a line item. 中国大陆 PRC 律师复核"
   },
   {
     "id": "product_legal_is_this_a_problem",
@@ -28,8 +28,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "product-legal",
     "pluginTitle": "Product Legal",
     "skillPath": "product-legal/skills/is-this-a-problem/SKILL.md",
-    "description": "Fast \"is this a problem?\" answer for the quick Slack question — pattern-matches against your calibration. Use when the user says \"is this a problem\", \"quick question\", \"can we do X\", \"do I need legal review for\", \"sanity check\", or pastes a PM's question that…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Is This A Problem is-this-a-problem product-legal 产品合规 Product Legal product-legal/skills/is-this-a-problem/SKILL.md Fast \"is this a problem?\" answer for the quick Slack question — pattern-matches against your calibration. Use when the user says \"is this a problem\", \"quick question\", \"can we do X\", \"do I need legal review for\", \"sanity check\", or pastes a PM's question that…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Fast \"is this a problem?\" answer for the quick Slack question — pattern-matches against your calibration.",
+    "keywords": "Is This A Problem is-this-a-problem product-legal 产品合规 Product Legal product-legal/skills/is-this-a-problem/SKILL.md Fast \"is this a problem?\" answer for the quick Slack question — pattern-matches against your calibration. 中国大陆 PRC 律师复核"
   },
   {
     "id": "product_legal_launch_review",
@@ -38,8 +38,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "product-legal",
     "pluginTitle": "Product Legal",
     "skillPath": "product-legal/skills/launch-review/SKILL.md",
-    "description": "Full launch review against your framework and risk calibration. Use when the user says \"review this launch\", \"legal review for [feature]\", \"can we ship this\", \"what are the legal issues with [product]\", or references a launch tracker ticket or PRD that needs …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Launch Review launch-review product-legal 产品合规 Product Legal product-legal/skills/launch-review/SKILL.md Full launch review against your framework and risk calibration. Use when the user says \"review this launch\", \"legal review for [feature]\", \"can we ship this\", \"what are the legal issues with [product]\", or references a launch tracker ticket or PRD that needs …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Full launch review against your framework and risk calibration.",
+    "keywords": "Launch Review launch-review product-legal 产品合规 Product Legal product-legal/skills/launch-review/SKILL.md Full launch review against your framework and risk calibration. 中国大陆 PRC 律师复核"
   },
   {
     "id": "product_legal_marketing_claims_review",
@@ -48,8 +48,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "product-legal",
     "pluginTitle": "Product Legal",
     "skillPath": "product-legal/skills/marketing-claims-review/SKILL.md",
-    "description": "Review marketing copy for claims that need substantiation, reframing, or cutting. Use when the user says \"review this marketing copy\", \"check these claims\", \"can we say this\", \"is this puffery or a problem\", or pastes marketing content (landing pages, emails,…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Marketing Claims Review marketing-claims-review product-legal 产品合规 Product Legal product-legal/skills/marketing-claims-review/SKILL.md Review marketing copy for claims that need substantiation, reframing, or cutting. Use when the user says \"review this marketing copy\", \"check these claims\", \"can we say this\", \"is this puffery or a problem\", or pastes marketing content (landing pages, emails,…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review marketing copy for claims that need substantiation, reframing, or cutting.",
+    "keywords": "Marketing Claims Review marketing-claims-review product-legal 产品合规 Product Legal product-legal/skills/marketing-claims-review/SKILL.md Review marketing copy for claims that need substantiation, reframing, or cutting. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_ai_tool_handoff",
@@ -58,8 +58,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/ai-tool-handoff/SKILL.md",
-    "description": "Detects when Luminance, Kira, or a similar bulk-review tool is in use, hands off the high-volume clause extraction to it, and QAs its output per the trust level in `~/.claude/plugins/config/claude-for-legal/corporate-legal/CLAUDE.md`. Use when user says \"send…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "AI Tool Handoff ai-tool-handoff corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/ai-tool-handoff/SKILL.md Detects when Luminance, Kira, or a similar bulk-review tool is in use, hands off the high-volume clause extraction to it, and QAs its output per the trust level in `~/.claude/plugins/config/claude-for-legal/corporate-legal/CLAUDE.md`. Use when user says \"send…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Detects when Luminance, Kira, or a similar bulk-review tool is in use, hands off the high-volume clause extraction to it, and QAs its output per the trust level in `~/.claude/plugins/config/claude-for-legal/corporate-legal/CLAUDE.md`.",
+    "keywords": "AI Tool Handoff ai-tool-handoff corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/ai-tool-handoff/SKILL.md Detects when Luminance, Kira, or a similar bulk-review tool is in use, hands off the high-volume clause extraction to it, and QAs its output per the trust level in `~/.claude/plugins/config/claude-for-legal/corporate-legal/CLAUDE.md`. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_board_minutes",
@@ -68,8 +68,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/board-minutes/SKILL.md",
-    "description": "Drafts board or committee meeting minutes in your house format. Auto-detects upcoming board and committee meetings from your calendar, asks for the agenda and any slides or pre-read materials, and produces a complete draft in the format learned from your seed…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Board Minutes board-minutes corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/board-minutes/SKILL.md Drafts board or committee meeting minutes in your house format. Auto-detects upcoming board and committee meetings from your calendar, asks for the agenda and any slides or pre-read materials, and produces a complete draft in the format learned from your seed…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Drafts board or committee meeting minutes in your house format.",
+    "keywords": "Board Minutes board-minutes corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/board-minutes/SKILL.md Drafts board or committee meeting minutes in your house format. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_closing_checklist",
@@ -78,8 +78,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/closing-checklist/SKILL.md",
-    "description": "What's blocking close — maintain the closing checklist with status, critical path, and days to close. Self-updating: ingests new items from diligence findings and schedule builds, tracks status, surfaces what's blocking. Use when user says \"closing checklist\"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Closing Checklist closing-checklist corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/closing-checklist/SKILL.md What's blocking close — maintain the closing checklist with status, critical path, and days to close. Self-updating: ingests new items from diligence findings and schedule builds, tracks status, surfaces what's blocking. Use when user says \"closing checklist\"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "What's blocking close — maintain the closing checklist with status, critical path, and days to close.",
+    "keywords": "Closing Checklist closing-checklist corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/closing-checklist/SKILL.md What's blocking close — maintain the closing checklist with status, critical path, and days to close. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_deal_team_summary",
@@ -88,8 +88,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/deal-team-summary/SKILL.md",
-    "description": "Aggregate diligence findings into a deal team briefing at the right altitude for the audience — exec summary for leadership, working summary for the team. Use when user says \"brief the deal team\", \"what's the state of diligence\", \"summarize findings for [audi…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Deal Team Summary deal-team-summary corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/deal-team-summary/SKILL.md Aggregate diligence findings into a deal team briefing at the right altitude for the audience — exec summary for leadership, working summary for the team. Use when user says \"brief the deal team\", \"what's the state of diligence\", \"summarize findings for [audi…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Aggregate diligence findings into a deal team briefing at the right altitude for the audience — exec summary for leadership, working summary for the team.",
+    "keywords": "Deal Team Summary deal-team-summary corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/deal-team-summary/SKILL.md Aggregate diligence findings into a deal team briefing at the right altitude for the audience — exec summary for leadership, working summary for the team. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_diligence_issue_extraction",
@@ -98,8 +98,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/diligence-issue-extraction/SKILL.md",
-    "description": "Read VDR documents and extract issues per house categories and materiality thresholds, producing findings in house memo format. Use when user says \"review the data room\", \"extract issues from [folder]\", \"diligence review\", \"what's in the VDR\", or points at VD…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Diligence Issue Extraction diligence-issue-extraction corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/diligence-issue-extraction/SKILL.md Read VDR documents and extract issues per house categories and materiality thresholds, producing findings in house memo format. Use when user says \"review the data room\", \"extract issues from [folder]\", \"diligence review\", \"what's in the VDR\", or points at VD…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Read VDR documents and extract issues per house categories and materiality thresholds, producing findings in house memo format.",
+    "keywords": "Diligence Issue Extraction diligence-issue-extraction corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/diligence-issue-extraction/SKILL.md Read VDR documents and extract issues per house categories and materiality thresholds, producing findings in house memo format. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_entity_compliance",
@@ -108,8 +108,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/entity-compliance/SKILL.md",
-    "description": "Entity compliance tracker — initialize, report upcoming deadlines, update status, run health audit, export to CSV. Maintains a compliance-tracker.yaml built from the entity table, calculates filing deadlines by entity and jurisdiction, and surfaces what's due…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Entity Compliance entity-compliance corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/entity-compliance/SKILL.md Entity compliance tracker — initialize, report upcoming deadlines, update status, run health audit, export to CSV. Maintains a compliance-tracker.yaml built from the entity table, calculates filing deadlines by entity and jurisdiction, and surfaces what's due…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Entity compliance tracker — initialize, report upcoming deadlines, update status, run health audit, export to CSV.",
+    "keywords": "Entity Compliance entity-compliance corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/entity-compliance/SKILL.md Entity compliance tracker — initialize, report upcoming deadlines, update status, run health audit, export to CSV. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_integration_management",
@@ -118,8 +118,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/integration-management/SKILL.md",
-    "description": "Post-closing M&A integration tracker — phased workplan, consent tracking, contract assignment at scale, weekly status reports. Initializes from whatever deal artifacts are available (purchase agreement, deal summary, closing checklist) and connects to deal-co…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Integration Management integration-management corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/integration-management/SKILL.md Post-closing M&A integration tracker — phased workplan, consent tracking, contract assignment at scale, weekly status reports. Initializes from whatever deal artifacts are available (purchase agreement, deal summary, closing checklist) and connects to deal-co…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Post-closing M&A integration tracker — phased workplan, consent tracking, contract assignment at scale, weekly status reports.",
+    "keywords": "Integration Management integration-management corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/integration-management/SKILL.md Post-closing M&A integration tracker — phased workplan, consent tracking, contract assignment at scale, weekly status reports. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_material_contract_schedule",
@@ -128,8 +128,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/material-contract-schedule/SKILL.md",
-    "description": "Build the material contracts disclosure schedule from diligence findings, applying the purchase agreement's Material Contract definition and formatting per the agreement's schedule format. Use when user says \"build the contracts schedule\", \"disclosure schedul…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Material Contract Schedule material-contract-schedule corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/material-contract-schedule/SKILL.md Build the material contracts disclosure schedule from diligence findings, applying the purchase agreement's Material Contract definition and formatting per the agreement's schedule format. Use when user says \"build the contracts schedule\", \"disclosure schedul…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Build the material contracts disclosure schedule from diligence findings, applying the purchase agreement's Material Contract definition and formatting per the agreement's schedule format.",
+    "keywords": "Material Contract Schedule material-contract-schedule corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/material-contract-schedule/SKILL.md Build the material contracts disclosure schedule from diligence findings, applying the purchase agreement's Material Contract definition and formatting per the agreement's schedule format. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_tabular_review",
@@ -138,8 +138,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/tabular-review/SKILL.md",
-    "description": "Tabular review — one row per document, one column per data point, every cell cited to source. Built for M&A diligence (\"review these 200 target contracts for change-of-control, assignment, and MAC clauses\") but works for any batch review that needs a spreadsh…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Tabular Review tabular-review corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/tabular-review/SKILL.md Tabular review — one row per document, one column per data point, every cell cited to source. Built for M&A diligence (\"review these 200 target contracts for change-of-control, assignment, and MAC clauses\") but works for any batch review that needs a spreadsh…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Tabular review — one row per document, one column per data point, every cell cited to source.",
+    "keywords": "Tabular Review tabular-review corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/tabular-review/SKILL.md Tabular review — one row per document, one column per data point, every cell cited to source. 中国大陆 PRC 律师复核"
   },
   {
     "id": "corporate_legal_written_consent",
@@ -148,8 +148,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "corporate-legal",
     "pluginTitle": "Corporate Legal",
     "skillPath": "corporate-legal/skills/written-consent/SKILL.md",
-    "description": "Draft a unanimous written consent of the board or a committee in house format, with precedent search from the consents repository. Handles multi-resolution consents, director conflict flags, state-law notice requirements, and signatory tracking, with a built-…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Written Consent written-consent corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/written-consent/SKILL.md Draft a unanimous written consent of the board or a committee in house format, with precedent search from the consents repository. Handles multi-resolution consents, director conflict flags, state-law notice requirements, and signatory tracking, with a built-…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft a unanimous written consent of the board or a committee in house format, with precedent search from the consents repository.",
+    "keywords": "Written Consent written-consent corporate-legal 公司与并购 Corporate Legal corporate-legal/skills/written-consent/SKILL.md Draft a unanimous written consent of the board or a committee in house format, with precedent search from the consents repository. 中国大陆 PRC 律师复核"
   },
   {
     "id": "regulatory_legal_comments",
@@ -158,8 +158,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "regulatory-legal",
     "pluginTitle": "Regulatory Legal",
     "skillPath": "regulatory-legal/skills/comments/SKILL.md",
-    "description": "Review open NPRM comment periods, log decisions, track deadlines. Use when an NPRM has a comment window open and you need to surface deadlines, decide whether to file, or record a filing / not-filing / waived decision (--decide CMT-ID).（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Comments comments regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/comments/SKILL.md Review open NPRM comment periods, log decisions, track deadlines. Use when an NPRM has a comment window open and you need to surface deadlines, decide whether to file, or record a filing / not-filing / waived decision (--decide CMT-ID).（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review open NPRM comment periods, log decisions, track deadlines.",
+    "keywords": "Comments comments regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/comments/SKILL.md Review open NPRM comment periods, log decisions, track deadlines. 中国大陆 PRC 律师复核"
   },
   {
     "id": "regulatory_legal_gap_surfacer",
@@ -168,8 +168,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "regulatory-legal",
     "pluginTitle": "Regulatory Legal",
     "skillPath": "regulatory-legal/skills/gap-surfacer/SKILL.md",
-    "description": "Reference: shared gap- and comment-tracker framework backing /regulatory-legal:gaps and /regulatory-legal:comments. Tracks open policy gaps with remediation status, ingests gaps from policy-diff, surfaces what's open and aging, routes to owners, and notifies …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Gap Surfacer gap-surfacer regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/gap-surfacer/SKILL.md Reference: shared gap- and comment-tracker framework backing /regulatory-legal:gaps and /regulatory-legal:comments. Tracks open policy gaps with remediation status, ingests gaps from policy-diff, surfaces what's open and aging, routes to owners, and notifies …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Reference: shared gap- and comment-tracker framework backing /regulatory-legal:gaps and /regulatory-legal:comments.",
+    "keywords": "Gap Surfacer gap-surfacer regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/gap-surfacer/SKILL.md Reference: shared gap- and comment-tracker framework backing /regulatory-legal:gaps and /regulatory-legal:comments. 中国大陆 PRC 律师复核"
   },
   {
     "id": "regulatory_legal_gaps",
@@ -178,8 +178,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "regulatory-legal",
     "pluginTitle": "Regulatory Legal",
     "skillPath": "regulatory-legal/skills/gaps/SKILL.md",
-    "description": "Open gaps tracker — what's flagged and not yet closed. Use when the user asks \"what gaps are open\", \"gap tracker\", \"remediation status\", or wants to close (--close GAP-ID) or risk-accept (--accept GAP-ID) a tracked gap.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Gaps gaps regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/gaps/SKILL.md Open gaps tracker — what's flagged and not yet closed. Use when the user asks \"what gaps are open\", \"gap tracker\", \"remediation status\", or wants to close (--close GAP-ID) or risk-accept (--accept GAP-ID) a tracked gap.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Open gaps tracker — what's flagged and not yet closed.",
+    "keywords": "Gaps gaps regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/gaps/SKILL.md Open gaps tracker — what's flagged and not yet closed. 中国大陆 PRC 律师复核"
   },
   {
     "id": "regulatory_legal_policy_diff",
@@ -188,8 +188,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "regulatory-legal",
     "pluginTitle": "Regulatory Legal",
     "skillPath": "regulatory-legal/skills/policy-diff/SKILL.md",
-    "description": "Diff a specific regulatory change against the indexed policy library. Use when a reg has changed and you need to know which policies it touches and what the gap is, when the user says \"diff this reg against our policies\", \"which policy does this affect\", or \"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Policy Diff policy-diff regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/policy-diff/SKILL.md Diff a specific regulatory change against the indexed policy library. Use when a reg has changed and you need to know which policies it touches and what the gap is, when the user says \"diff this reg against our policies\", \"which policy does this affect\", or \"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Diff a specific regulatory change against the indexed policy library.",
+    "keywords": "Policy Diff policy-diff regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/policy-diff/SKILL.md Diff a specific regulatory change against the indexed policy library. 中国大陆 PRC 律师复核"
   },
   {
     "id": "regulatory_legal_policy_redraft",
@@ -198,8 +198,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "regulatory-legal",
     "pluginTitle": "Regulatory Legal",
     "skillPath": "regulatory-legal/skills/policy-redraft/SKILL.md",
-    "description": "Produce a proposed marked-up policy redraft that closes a gap found by /regulatory-legal:gaps or /regulatory-legal:policy-diff. A first draft for internal review — not for direct application to approved policy documents. Use when the user says \"redraft the po…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Policy Redraft policy-redraft regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/policy-redraft/SKILL.md Produce a proposed marked-up policy redraft that closes a gap found by /regulatory-legal:gaps or /regulatory-legal:policy-diff. A first draft for internal review — not for direct application to approved policy documents. Use when the user says \"redraft the po…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Produce a proposed marked-up policy redraft that closes a gap found by /regulatory-legal:gaps or /regulatory-legal:policy-diff.",
+    "keywords": "Policy Redraft policy-redraft regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/policy-redraft/SKILL.md Produce a proposed marked-up policy redraft that closes a gap found by /regulatory-legal:gaps or /regulatory-legal:policy-diff. 中国大陆 PRC 律师复核"
   },
   {
     "id": "regulatory_legal_reg_feed_watcher",
@@ -208,8 +208,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "regulatory-legal",
     "pluginTitle": "Regulatory Legal",
     "skillPath": "regulatory-legal/skills/reg-feed-watcher/SKILL.md",
-    "description": "Check regulatory feeds now and report what's new since the last check, filtered by your materiality threshold. Use when the user says \"check the feeds\", \"what's new\", \"regulatory update\", when running from the scheduled agent, or when manually pasting a regul…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Reg Feed Watcher reg-feed-watcher regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/reg-feed-watcher/SKILL.md Check regulatory feeds now and report what's new since the last check, filtered by your materiality threshold. Use when the user says \"check the feeds\", \"what's new\", \"regulatory update\", when running from the scheduled agent, or when manually pasting a regul…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Check regulatory feeds now and report what's new since the last check, filtered by your materiality threshold.",
+    "keywords": "Reg Feed Watcher reg-feed-watcher regulatory-legal 监管合规 Regulatory Legal regulatory-legal/skills/reg-feed-watcher/SKILL.md Check regulatory feeds now and report what's new since the last check, filtered by your materiality threshold. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_expansion_kickoff",
@@ -218,8 +218,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/expansion-kickoff/SKILL.md",
-    "description": "Kick off international expansion planning for a new country — gathers intake, runs EOR vs. entity framing, drafts cross-functional questions, surfaces country-specific flags, and creates a persistent tracker. Use when someone says \"we're hiring in [country]\",…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Expansion Kickoff expansion-kickoff employment-legal 劳动人事 Employment Legal employment-legal/skills/expansion-kickoff/SKILL.md Kick off international expansion planning for a new country — gathers intake, runs EOR vs. entity framing, drafts cross-functional questions, surfaces country-specific flags, and creates a persistent tracker. Use when someone says \"we're hiring in [country]\",…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Kick off international expansion planning for a new country — gathers intake, runs EOR vs.",
+    "keywords": "Expansion Kickoff expansion-kickoff employment-legal 劳动人事 Employment Legal employment-legal/skills/expansion-kickoff/SKILL.md Kick off international expansion planning for a new country — gathers intake, runs EOR vs. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_expansion_update",
@@ -228,8 +228,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/expansion-update/SKILL.md",
-    "description": "Update the status of an in-progress international expansion project — recalculates what is now unblocked, flags anything overdue, and surfaces the next priorities. Use when work has happened since the last session and the expansion tracker needs to reflect th…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Expansion Update expansion-update employment-legal 劳动人事 Employment Legal employment-legal/skills/expansion-update/SKILL.md Update the status of an in-progress international expansion project — recalculates what is now unblocked, flags anything overdue, and surfaces the next priorities. Use when work has happened since the last session and the expansion tracker needs to reflect th…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Update the status of an in-progress international expansion project — recalculates what is now unblocked, flags anything overdue, and surfaces the next priorities.",
+    "keywords": "Expansion Update expansion-update employment-legal 劳动人事 Employment Legal employment-legal/skills/expansion-update/SKILL.md Update the status of an in-progress international expansion project — recalculates what is now unblocked, flags anything overdue, and surfaces the next priorities. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_handbook_updates",
@@ -238,8 +238,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/handbook-updates/SKILL.md",
-    "description": "Diff a proposed handbook change against the current version, flag ripple effects and state supplement impacts. Use when user says \"update the handbook\", \"add this to the handbook\", \"handbook change\", or has a policy ready for insertion.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Handbook Updates handbook-updates employment-legal 劳动人事 Employment Legal employment-legal/skills/handbook-updates/SKILL.md Diff a proposed handbook change against the current version, flag ripple effects and state supplement impacts. Use when user says \"update the handbook\", \"add this to the handbook\", \"handbook change\", or has a policy ready for insertion.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Diff a proposed handbook change against the current version, flag ripple effects and state supplement impacts.",
+    "keywords": "Handbook Updates handbook-updates employment-legal 劳动人事 Employment Legal employment-legal/skills/handbook-updates/SKILL.md Diff a proposed handbook change against the current version, flag ripple effects and state supplement impacts. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_hiring_review",
@@ -248,8 +248,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/hiring-review/SKILL.md",
-    "description": "Review an offer letter and any restrictive covenants — jurisdiction check included. Substantive rules (covenant enforceability, pay-transparency, salary-history limits, exemption criteria) are researched per hire, not stored. Use when the user says \"review th…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Hiring Review hiring-review employment-legal 劳动人事 Employment Legal employment-legal/skills/hiring-review/SKILL.md Review an offer letter and any restrictive covenants — jurisdiction check included. Substantive rules (covenant enforceability, pay-transparency, salary-history limits, exemption criteria) are researched per hire, not stored. Use when the user says \"review th…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review an offer letter and any restrictive covenants — jurisdiction check included.",
+    "keywords": "Hiring Review hiring-review employment-legal 劳动人事 Employment Legal employment-legal/skills/hiring-review/SKILL.md Review an offer letter and any restrictive covenants — jurisdiction check included. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_internal_investigation",
@@ -258,8 +258,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/internal-investigation/SKILL.md",
-    "description": "Reference: shared framework for managing internal investigations from intake through final memo — privileged investigation log, document processing with needle-finding, source coverage tracking, Q&A against the log, memo drafting, and audience summaries. Load…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Internal Investigation internal-investigation employment-legal 劳动人事 Employment Legal employment-legal/skills/internal-investigation/SKILL.md Reference: shared framework for managing internal investigations from intake through final memo — privileged investigation log, document processing with needle-finding, source coverage tracking, Q&A against the log, memo drafting, and audience summaries. Load…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Reference: shared framework for managing internal investigations from intake through final memo — privileged investigation log, document processing with needle-finding, source coverage tracking, Q&A against the log, memo drafting, and audience summaries.",
+    "keywords": "Internal Investigation internal-investigation employment-legal 劳动人事 Employment Legal employment-legal/skills/internal-investigation/SKILL.md Reference: shared framework for managing internal investigations from intake through final memo — privileged investigation log, document processing with needle-finding, source coverage tracking, Q&A against the log, memo drafting, and audience summaries. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_international_expansion",
@@ -268,8 +268,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/international-expansion/SKILL.md",
-    "description": "Reference: implementation-planning framework for international hiring — EOR vs. entity decision framing, cross-functional triggers for tax/finance/HR, structured outside-counsel briefing requests, and a persistent gap tracker. Loaded by /expansion-kickoff and…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "International Expansion international-expansion employment-legal 劳动人事 Employment Legal employment-legal/skills/international-expansion/SKILL.md Reference: implementation-planning framework for international hiring — EOR vs. entity decision framing, cross-functional triggers for tax/finance/HR, structured outside-counsel briefing requests, and a persistent gap tracker. Loaded by /expansion-kickoff and…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Reference: implementation-planning framework for international hiring — EOR vs.",
+    "keywords": "International Expansion international-expansion employment-legal 劳动人事 Employment Legal employment-legal/skills/international-expansion/SKILL.md Reference: implementation-planning framework for international hiring — EOR vs. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_investigation_add",
@@ -278,8 +278,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/investigation-add/SKILL.md",
-    "description": "Add data to an open investigation — documents, interview notes, or observations. Processes batches against the documented pull criteria, surfaces significant items, and logs everything reviewed for coverage verification. Use when new evidence, interview notes…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Investigation Add investigation-add employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-add/SKILL.md Add data to an open investigation — documents, interview notes, or observations. Processes batches against the documented pull criteria, surfaces significant items, and logs everything reviewed for coverage verification. Use when new evidence, interview notes…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Add data to an open investigation — documents, interview notes, or observations.",
+    "keywords": "Investigation Add investigation-add employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-add/SKILL.md Add data to an open investigation — documents, interview notes, or observations. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_investigation_memo",
@@ -288,8 +288,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/investigation-memo/SKILL.md",
-    "description": "Draft or update the privileged investigation memo from the investigation log. Use when an investigation is far enough along to write the first memo cut, or when new data has been added and the existing draft needs updating.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Investigation Memo investigation-memo employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-memo/SKILL.md Draft or update the privileged investigation memo from the investigation log. Use when an investigation is far enough along to write the first memo cut, or when new data has been added and the existing draft needs updating.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft or update the privileged investigation memo from the investigation log.",
+    "keywords": "Investigation Memo investigation-memo employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-memo/SKILL.md Draft or update the privileged investigation memo from the investigation log. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_investigation_open",
@@ -298,8 +298,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/investigation-open/SKILL.md",
-    "description": "Open a new internal investigation matter — runs intake, generates the sources checklist, and creates the persistent investigation log. Use when a complaint or allegation comes in and the attorney needs to stand up a privileged investigation workspace.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Investigation Open investigation-open employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-open/SKILL.md Open a new internal investigation matter — runs intake, generates the sources checklist, and creates the persistent investigation log. Use when a complaint or allegation comes in and the attorney needs to stand up a privileged investigation workspace.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Open a new internal investigation matter — runs intake, generates the sources checklist, and creates the persistent investigation log.",
+    "keywords": "Investigation Open investigation-open employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-open/SKILL.md Open a new internal investigation matter — runs intake, generates the sources checklist, and creates the persistent investigation log. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_investigation_query",
@@ -308,8 +308,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/investigation-query/SKILL.md",
-    "description": "Ask questions against an open investigation log — what witnesses said, where accounts conflict, what gaps exist, what the strongest evidence is on each issue. Use when the attorney needs to query the investigation record without re-reading every entry.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Investigation Query investigation-query employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-query/SKILL.md Ask questions against an open investigation log — what witnesses said, where accounts conflict, what gaps exist, what the strongest evidence is on each issue. Use when the attorney needs to query the investigation record without re-reading every entry.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Ask questions against an open investigation log — what witnesses said, where accounts conflict, what gaps exist, what the strongest evidence is on each issue.",
+    "keywords": "Investigation Query investigation-query employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-query/SKILL.md Ask questions against an open investigation log — what witnesses said, where accounts conflict, what gaps exist, what the strongest evidence is on each issue. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_investigation_summary",
@@ -318,8 +318,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/investigation-summary/SKILL.md",
-    "description": "Draft an audience-specific summary from the privileged investigation memo — HR, leadership, or outside counsel versions. Use when an investigation memo needs to be communicated to an audience that should not see the full privileged work product.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Investigation Summary investigation-summary employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-summary/SKILL.md Draft an audience-specific summary from the privileged investigation memo — HR, leadership, or outside counsel versions. Use when an investigation memo needs to be communicated to an audience that should not see the full privileged work product.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft an audience-specific summary from the privileged investigation memo — HR, leadership, or outside counsel versions.",
+    "keywords": "Investigation Summary investigation-summary employment-legal 劳动人事 Employment Legal employment-legal/skills/investigation-summary/SKILL.md Draft an audience-specific summary from the privileged investigation memo — HR, leadership, or outside counsel versions. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_leave_tracker",
@@ -328,8 +328,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/leave-tracker/SKILL.md",
-    "description": "Check open leaves for deadline alerts and required decisions. Surfaces only the leaves that require an action and explains why — not a status board. Use weekly, or whenever the attorney needs to know which leaves have upcoming designation, certification, or e…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Leave Tracker leave-tracker employment-legal 劳动人事 Employment Legal employment-legal/skills/leave-tracker/SKILL.md Check open leaves for deadline alerts and required decisions. Surfaces only the leaves that require an action and explains why — not a status board. Use weekly, or whenever the attorney needs to know which leaves have upcoming designation, certification, or e…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Check open leaves for deadline alerts and required decisions.",
+    "keywords": "Leave Tracker leave-tracker employment-legal 劳动人事 Employment Legal employment-legal/skills/leave-tracker/SKILL.md Check open leaves for deadline alerts and required decisions. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_log_leave",
@@ -338,8 +338,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/log-leave/SKILL.md",
-    "description": "Add a new leave to the leave register with the minimum information needed to start tracking deadlines. Use when an employee goes on leave and you want the tracker to watch designation, certification, and exhaustion clocks from day one.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Log Leave log-leave employment-legal 劳动人事 Employment Legal employment-legal/skills/log-leave/SKILL.md Add a new leave to the leave register with the minimum information needed to start tracking deadlines. Use when an employee goes on leave and you want the tracker to watch designation, certification, and exhaustion clocks from day one.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Add a new leave to the leave register with the minimum information needed to start tracking deadlines.",
+    "keywords": "Log Leave log-leave employment-legal 劳动人事 Employment Legal employment-legal/skills/log-leave/SKILL.md Add a new leave to the leave register with the minimum information needed to start tracking deadlines. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_policy_drafting",
@@ -348,8 +348,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/policy-drafting/SKILL.md",
-    "description": "Draft an employment policy with state supplements where law differs across the jurisdictional footprint. Use when the user says \"draft a [topic] policy\", \"we need a policy on\", \"update our [topic] policy\", or names a policy gap.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Policy Drafting policy-drafting employment-legal 劳动人事 Employment Legal employment-legal/skills/policy-drafting/SKILL.md Draft an employment policy with state supplements where law differs across the jurisdictional footprint. Use when the user says \"draft a [topic] policy\", \"we need a policy on\", \"update our [topic] policy\", or names a policy gap.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft an employment policy with state supplements where law differs across the jurisdictional footprint.",
+    "keywords": "Policy Drafting policy-drafting employment-legal 劳动人事 Employment Legal employment-legal/skills/policy-drafting/SKILL.md Draft an employment policy with state supplements where law differs across the jurisdictional footprint. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_termination_review",
@@ -358,8 +358,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/termination-review/SKILL.md",
-    "description": "Termination review — high-risk flag detection, severance + release, and final pay timing by jurisdiction. Jurisdiction-specific rules and release consideration periods are researched per review, not stored. Use when the user says \"reviewing a termination\", \"c…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Termination Review termination-review employment-legal 劳动人事 Employment Legal employment-legal/skills/termination-review/SKILL.md Termination review — high-risk flag detection, severance + release, and final pay timing by jurisdiction. Jurisdiction-specific rules and release consideration periods are researched per review, not stored. Use when the user says \"reviewing a termination\", \"c…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Termination review — high-risk flag detection, severance + release, and final pay timing by jurisdiction.",
+    "keywords": "Termination Review termination-review employment-legal 劳动人事 Employment Legal employment-legal/skills/termination-review/SKILL.md Termination review — high-risk flag detection, severance + release, and final pay timing by jurisdiction. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_wage_hour_qa",
@@ -368,8 +368,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/wage-hour-qa/SKILL.md",
-    "description": "Jurisdiction-aware wage/hour and employment Q&A — classification, overtime, meal/rest breaks, leave, final pay — answered for the specific state/country with the controlling rule researched and cited rather than stated from memory. Use when the user asks any …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Wage Hour QA wage-hour-qa employment-legal 劳动人事 Employment Legal employment-legal/skills/wage-hour-qa/SKILL.md Jurisdiction-aware wage/hour and employment Q&A — classification, overtime, meal/rest breaks, leave, final pay — answered for the specific state/country with the controlling rule researched and cited rather than stated from memory. Use when the user asks any …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Jurisdiction-aware wage/hour and employment Q&A — classification, overtime, meal/rest breaks, leave, final pay — answered for the specific state/country with the controlling rule researched and cited rather than stated from memory.",
+    "keywords": "Wage Hour QA wage-hour-qa employment-legal 劳动人事 Employment Legal employment-legal/skills/wage-hour-qa/SKILL.md Jurisdiction-aware wage/hour and employment Q&A — classification, overtime, meal/rest breaks, leave, final pay — answered for the specific state/country with the controlling rule researched and cited rather than stated from memory. 中国大陆 PRC 律师复核"
   },
   {
     "id": "employment_legal_worker_classification",
@@ -378,8 +378,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "employment-legal",
     "pluginTitle": "Employment Legal",
     "skillPath": "employment-legal/skills/worker-classification/SKILL.md",
-    "description": "Classify a proposed worker engagement — employee, IC, temp, or vendor — by running the applicable jurisdiction tests and flagging misclassification gaps between the intended arrangement and what the facts actually support. Prospective use only. Use when someo…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Worker Classification worker-classification employment-legal 劳动人事 Employment Legal employment-legal/skills/worker-classification/SKILL.md Classify a proposed worker engagement — employee, IC, temp, or vendor — by running the applicable jurisdiction tests and flagging misclassification gaps between the intended arrangement and what the facts actually support. Prospective use only. Use when someo…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Classify a proposed worker engagement — employee, IC, temp, or vendor — by running the applicable jurisdiction tests and flagging misclassification gaps between the intended arrangement and what the facts actually support.",
+    "keywords": "Worker Classification worker-classification employment-legal 劳动人事 Employment Legal employment-legal/skills/worker-classification/SKILL.md Classify a proposed worker engagement — employee, IC, temp, or vendor — by running the applicable jurisdiction tests and flagging misclassification gaps between the intended arrangement and what the facts actually support. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_ai_inventory",
@@ -388,8 +388,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/ai-inventory/SKILL.md",
-    "description": "EU AI Act per-system inventory — track each AI system's role (provider, deployer, importer, distributor, authorized representative, product manufacturer) and risk tier (prohibited, high-risk, limited, minimal, GPAI, GPAI+systemic). Role and tier are assessed …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "AI Inventory ai-inventory ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/ai-inventory/SKILL.md EU AI Act per-system inventory — track each AI system's role (provider, deployer, importer, distributor, authorized representative, product manufacturer) and risk tier (prohibited, high-risk, limited, minimal, GPAI, GPAI+systemic). Role and tier are assessed …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "EU AI Act per-system inventory — track each AI system's role (provider, deployer, importer, distributor, authorized representative, product manufacturer) and risk tier (prohibited, high-risk, limited, minimal, GPAI, GPAI+systemic).",
+    "keywords": "AI Inventory ai-inventory ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/ai-inventory/SKILL.md EU AI Act per-system inventory — track each AI system's role (provider, deployer, importer, distributor, authorized representative, product manufacturer) and risk tier (prohibited, high-risk, limited, minimal, GPAI, GPAI+systemic). 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_aia_generation",
@@ -398,8 +398,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/aia-generation/SKILL.md",
-    "description": "Run an AI impact assessment — structured intake, risk analysis, regulatory classification per regime in scope, policy consistency diff, and recommendation with conditions. Uses the house-style structure learned from the seed impact assessment in `~/.claude/pl…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Aia Generation aia-generation ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/aia-generation/SKILL.md Run an AI impact assessment — structured intake, risk analysis, regulatory classification per regime in scope, policy consistency diff, and recommendation with conditions. Uses the house-style structure learned from the seed impact assessment in `~/.claude/pl…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Run an AI impact assessment — structured intake, risk analysis, regulatory classification per regime in scope, policy consistency diff, and recommendation with conditions.",
+    "keywords": "Aia Generation aia-generation ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/aia-generation/SKILL.md Run an AI impact assessment — structured intake, risk analysis, regulatory classification per regime in scope, policy consistency diff, and recommendation with conditions. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_policy_monitor",
@@ -408,8 +408,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/policy-monitor/SKILL.md",
-    "description": "Keep the AI policy current with practice — weekly sweep of saved AIAs, triage results, and vendor reviews to find policy drift, or direct query for a proposed new AI practice. Use when user says \"policy sweep\", \"does our AI policy cover this\", \"we want to sta…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Policy Monitor policy-monitor ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/policy-monitor/SKILL.md Keep the AI policy current with practice — weekly sweep of saved AIAs, triage results, and vendor reviews to find policy drift, or direct query for a proposed new AI practice. Use when user says \"policy sweep\", \"does our AI policy cover this\", \"we want to sta…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Keep the AI policy current with practice — weekly sweep of saved AIAs, triage results, and vendor reviews to find policy drift, or direct query for a proposed new AI practice.",
+    "keywords": "Policy Monitor policy-monitor ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/policy-monitor/SKILL.md Keep the AI policy current with practice — weekly sweep of saved AIAs, triage results, and vendor reviews to find policy drift, or direct query for a proposed new AI practice. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_policy_starter",
@@ -418,8 +418,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/policy-starter/SKILL.md",
-    "description": "Draft a firm AI usage policy from published model policies, adapted to your practice profile — a research-and-synthesis tool whose output is a draft for attorney review and adoption, not a finished policy. Use when user says \"draft an AI policy\", \"we need an …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Policy Starter policy-starter ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/policy-starter/SKILL.md Draft a firm AI usage policy from published model policies, adapted to your practice profile — a research-and-synthesis tool whose output is a draft for attorney review and adoption, not a finished policy. Use when user says \"draft an AI policy\", \"we need an …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft a firm AI usage policy from published model policies, adapted to your practice profile — a research-and-synthesis tool whose output is a draft for attorney review and adoption, not a finished policy.",
+    "keywords": "Policy Starter policy-starter ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/policy-starter/SKILL.md Draft a firm AI usage policy from published model policies, adapted to your practice profile — a research-and-synthesis tool whose output is a draft for attorney review and adoption, not a finished policy. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_reg_gap_analysis",
@@ -428,8 +428,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/reg-gap-analysis/SKILL.md",
-    "description": "Diff a new AI regulation or guidance against your current governance posture — surfaces gaps, priorities, and a remediation plan with owners and deadlines. Use when an AI regulation moves (or you learn about one you missed), or when user says \"new reg just dr…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Reg Gap Analysis reg-gap-analysis ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/reg-gap-analysis/SKILL.md Diff a new AI regulation or guidance against your current governance posture — surfaces gaps, priorities, and a remediation plan with owners and deadlines. Use when an AI regulation moves (or you learn about one you missed), or when user says \"new reg just dr…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Diff a new AI regulation or guidance against your current governance posture — surfaces gaps, priorities, and a remediation plan with owners and deadlines.",
+    "keywords": "Reg Gap Analysis reg-gap-analysis ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/reg-gap-analysis/SKILL.md Diff a new AI regulation or guidance against your current governance posture — surfaces gaps, priorities, and a remediation plan with owners and deadlines. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_use_case_triage",
@@ -438,8 +438,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/use-case-triage/SKILL.md",
-    "description": "Classify a proposed AI use case against your registry — approved, conditional, or not approved — and produce required conditions and next steps. Flags cross-plugin handoffs to privacy or product counsel. Use when user says \"triage this use case\", \"can we use …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Use Case Triage use-case-triage ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/use-case-triage/SKILL.md Classify a proposed AI use case against your registry — approved, conditional, or not approved — and produce required conditions and next steps. Flags cross-plugin handoffs to privacy or product counsel. Use when user says \"triage this use case\", \"can we use …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Classify a proposed AI use case against your registry — approved, conditional, or not approved — and produce required conditions and next steps.",
+    "keywords": "Use Case Triage use-case-triage ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/use-case-triage/SKILL.md Classify a proposed AI use case against your registry — approved, conditional, or not approved — and produce required conditions and next steps. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ai_governance_legal_vendor_ai_review",
@@ -448,8 +448,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ai-governance-legal",
     "pluginTitle": "AI Governance Legal",
     "skillPath": "ai-governance-legal/skills/vendor-ai-review/SKILL.md",
-    "description": "Review vendor AI terms — agreement, addendum, or ToS AI provisions — against your governance positions; flag training-on-data, liability, model changes, and AI policy consistency. Use when user says \"review this AI agreement\", \"check OpenAI terms\", \"what did …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Vendor AI Review vendor-ai-review ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/vendor-ai-review/SKILL.md Review vendor AI terms — agreement, addendum, or ToS AI provisions — against your governance positions; flag training-on-data, liability, model changes, and AI policy consistency. Use when user says \"review this AI agreement\", \"check OpenAI terms\", \"what did …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review vendor AI terms — agreement, addendum, or ToS AI provisions — against your governance positions; flag training-on-data, liability, model changes, and AI policy consistency.",
+    "keywords": "Vendor AI Review vendor-ai-review ai-governance-legal 人工智能治理 AI Governance Legal ai-governance-legal/skills/vendor-ai-review/SKILL.md Review vendor AI terms — agreement, addendum, or ToS AI provisions — against your governance positions; flag training-on-data, liability, model changes, and AI policy consistency. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_amendment_history",
@@ -458,8 +458,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/amendment-history/SKILL.md",
-    "description": "Trace how a contract has changed across its base agreement and all amendments — either a summary of all changes over time, or a provision trace for a specific clause. Use when the user says \"what changed in this contract over time\", \"show me the amendment his…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Amendment History amendment-history commercial-legal 商事合同 Commercial Legal commercial-legal/skills/amendment-history/SKILL.md Trace how a contract has changed across its base agreement and all amendments — either a summary of all changes over time, or a provision trace for a specific clause. Use when the user says \"what changed in this contract over time\", \"show me the amendment his…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Trace how a contract has changed across its base agreement and all amendments — either a summary of all changes over time, or a provision trace for a specific clause.",
+    "keywords": "Amendment History amendment-history commercial-legal 商事合同 Commercial Legal commercial-legal/skills/amendment-history/SKILL.md Trace how a contract has changed across its base agreement and all amendments — either a summary of all changes over time, or a provision trace for a specific clause. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_escalation_flagger",
@@ -468,8 +468,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/escalation-flagger/SKILL.md",
-    "description": "Route a contract issue to the right approver per the escalation matrix in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`, and draft the ask. Use when the user says \"who needs to approve this\", \"escalate this\", \"does this need GC sign-o…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Escalation Flagger escalation-flagger commercial-legal 商事合同 Commercial Legal commercial-legal/skills/escalation-flagger/SKILL.md Route a contract issue to the right approver per the escalation matrix in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`, and draft the ask. Use when the user says \"who needs to approve this\", \"escalate this\", \"does this need GC sign-o…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Route a contract issue to the right approver per the escalation matrix in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`, and draft the ask.",
+    "keywords": "Escalation Flagger escalation-flagger commercial-legal 商事合同 Commercial Legal commercial-legal/skills/escalation-flagger/SKILL.md Route a contract issue to the right approver per the escalation matrix in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`, and draft the ask. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_nda_review",
@@ -478,8 +478,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/nda-review/SKILL.md",
-    "description": "Reference: fast triage of inbound NDAs into GREEN / YELLOW / RED so the team only spends lawyer time on the ones that need it. Built for sales and BD to self-serve before pinging legal. Loaded by /commercial-legal:review when an NDA is detected.（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "NDA Review nda-review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/nda-review/SKILL.md Reference: fast triage of inbound NDAs into GREEN / YELLOW / RED so the team only spends lawyer time on the ones that need it. Built for sales and BD to self-serve before pinging legal. Loaded by /commercial-legal:review when an NDA is detected.（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Reference: fast triage of inbound NDAs into GREEN / YELLOW / RED so the team only spends lawyer time on the ones that need it.",
+    "keywords": "NDA Review nda-review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/nda-review/SKILL.md Reference: fast triage of inbound NDAs into GREEN / YELLOW / RED so the team only spends lawyer time on the ones that need it. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_renewal_tracker",
@@ -488,8 +488,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/renewal-tracker/SKILL.md",
-    "description": "Show contracts with cancel-by deadlines coming up and warn before notice windows close, working from a maintained renewal register. Use when the user asks \"what's renewing soon\", \"what renewals are due\", \"did we miss a cancellation window\", \"add this to the r…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Renewal Tracker renewal-tracker commercial-legal 商事合同 Commercial Legal commercial-legal/skills/renewal-tracker/SKILL.md Show contracts with cancel-by deadlines coming up and warn before notice windows close, working from a maintained renewal register. Use when the user asks \"what's renewing soon\", \"what renewals are due\", \"did we miss a cancellation window\", \"add this to the r…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Show contracts with cancel-by deadlines coming up and warn before notice windows close, working from a maintained renewal register.",
+    "keywords": "Renewal Tracker renewal-tracker commercial-legal 商事合同 Commercial Legal commercial-legal/skills/renewal-tracker/SKILL.md Show contracts with cancel-by deadlines coming up and warn before notice windows close, working from a maintained renewal register. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_review",
@@ -498,8 +498,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/review/SKILL.md",
-    "description": "Review a vendor agreement, NDA, or SaaS subscription against your playbook. Identifies the agreement structure from titles, routes to the right review skill (vendor-agreement-review, nda-review, saas-msa-review), and integrates the output into a single memo. …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Review review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/review/SKILL.md Review a vendor agreement, NDA, or SaaS subscription against your playbook. Identifies the agreement structure from titles, routes to the right review skill (vendor-agreement-review, nda-review, saas-msa-review), and integrates the output into a single memo. …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review a vendor agreement, NDA, or SaaS subscription against your playbook.",
+    "keywords": "Review review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/review/SKILL.md Review a vendor agreement, NDA, or SaaS subscription against your playbook. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_review_proposals",
@@ -508,8 +508,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/review-proposals/SKILL.md",
-    "description": "Review and approve (or reject) pending playbook update proposals from the playbook-monitor agent and apply approved changes to the practice profile. Use when the playbook-monitor agent has surfaced proposals, when the user says \"review playbook proposals\", \"w…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Review Proposals review-proposals commercial-legal 商事合同 Commercial Legal commercial-legal/skills/review-proposals/SKILL.md Review and approve (or reject) pending playbook update proposals from the playbook-monitor agent and apply approved changes to the practice profile. Use when the playbook-monitor agent has surfaced proposals, when the user says \"review playbook proposals\", \"w…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review and approve (or reject) pending playbook update proposals from the playbook-monitor agent and apply approved changes to the practice profile.",
+    "keywords": "Review Proposals review-proposals commercial-legal 商事合同 Commercial Legal commercial-legal/skills/review-proposals/SKILL.md Review and approve (or reject) pending playbook update proposals from the playbook-monitor agent and apply approved changes to the practice profile. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_saas_msa_review",
@@ -518,8 +518,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/saas-msa-review/SKILL.md",
-    "description": "Reference: review of SaaS subscription agreements with attention to the terms that matter most in subscription deals — auto-renewal mechanics, price escalation, data portability, uptime SLAs, and subprocessor rights. Loaded by /commercial-legal:review when a …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Saas MSA Review saas-msa-review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/saas-msa-review/SKILL.md Reference: review of SaaS subscription agreements with attention to the terms that matter most in subscription deals — auto-renewal mechanics, price escalation, data portability, uptime SLAs, and subprocessor rights. Loaded by /commercial-legal:review when a …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Reference: review of SaaS subscription agreements with attention to the terms that matter most in subscription deals — auto-renewal mechanics, price escalation, data portability, uptime SLAs, and subprocessor rights.",
+    "keywords": "Saas MSA Review saas-msa-review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/saas-msa-review/SKILL.md Reference: review of SaaS subscription agreements with attention to the terms that matter most in subscription deals — auto-renewal mechanics, price escalation, data portability, uptime SLAs, and subprocessor rights. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_stakeholder_summary",
@@ -528,8 +528,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/stakeholder-summary/SKILL.md",
-    "description": "Translates a contract review into a summary the business stakeholder will actually read. Not a legal memo — a two-minute answer to \"can I sign this and what do I need to know.\" Use when user says \"summarize for the business\", \"write this up for [stakeholder]\"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Stakeholder Summary stakeholder-summary commercial-legal 商事合同 Commercial Legal commercial-legal/skills/stakeholder-summary/SKILL.md Translates a contract review into a summary the business stakeholder will actually read. Not a legal memo — a two-minute answer to \"can I sign this and what do I need to know.\" Use when user says \"summarize for the business\", \"write this up for [stakeholder]\"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Translates a contract review into a summary the business stakeholder will actually read.",
+    "keywords": "Stakeholder Summary stakeholder-summary commercial-legal 商事合同 Commercial Legal commercial-legal/skills/stakeholder-summary/SKILL.md Translates a contract review into a summary the business stakeholder will actually read. 中国大陆 PRC 律师复核"
   },
   {
     "id": "commercial_legal_vendor_agreement_review",
@@ -538,8 +538,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "commercial-legal",
     "pluginTitle": "Commercial Legal",
     "skillPath": "commercial-legal/skills/vendor-agreement-review/SKILL.md",
-    "description": "Reference: review of an inbound vendor agreement against the team playbook in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`. Flags deviations, assesses risk, generates specific redline language, and routes to the right approver. Loade…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Vendor Agreement Review vendor-agreement-review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/vendor-agreement-review/SKILL.md Reference: review of an inbound vendor agreement against the team playbook in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`. Flags deviations, assesses risk, generates specific redline language, and routes to the right approver. Loade…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Reference: review of an inbound vendor agreement against the team playbook in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`.",
+    "keywords": "Vendor Agreement Review vendor-agreement-review commercial-legal 商事合同 Commercial Legal commercial-legal/skills/vendor-agreement-review/SKILL.md Reference: review of an inbound vendor agreement against the team playbook in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`. 中国大陆 PRC 律师复核"
   },
   {
     "id": "privacy_legal_dpa_review",
@@ -548,8 +548,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "privacy-legal",
     "pluginTitle": "Privacy Legal",
     "skillPath": "privacy-legal/skills/dpa-review/SKILL.md",
-    "description": "Review a Data Processing Agreement against your DPA playbook — auto-detects whether you're processor or controller and applies the right half of the playbook. Use when the user says \"review this DPA\", \"check this data processing addendum\", \"customer sent thei…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "DPA Review dpa-review privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/dpa-review/SKILL.md Review a Data Processing Agreement against your DPA playbook — auto-detects whether you're processor or controller and applies the right half of the playbook. Use when the user says \"review this DPA\", \"check this data processing addendum\", \"customer sent thei…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review a Data Processing Agreement against your DPA playbook — auto-detects whether you're processor or controller and applies the right half of the playbook.",
+    "keywords": "DPA Review dpa-review privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/dpa-review/SKILL.md Review a Data Processing Agreement against your DPA playbook — auto-detects whether you're processor or controller and applies the right half of the playbook. 中国大陆 PRC 律师复核"
   },
   {
     "id": "privacy_legal_dsar_response",
@@ -558,8 +558,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "privacy-legal",
     "pluginTitle": "Privacy Legal",
     "skillPath": "privacy-legal/skills/dsar-response/SKILL.md",
-    "description": "Walk through a Data Subject Access Request (or deletion, portability, correction request) and draft the response — verify identity, locate data system-by-system, assess exemptions, draft the acknowledgment and substantive response letters. Use when a DSAR com…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "DSAR Response dsar-response privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/dsar-response/SKILL.md Walk through a Data Subject Access Request (or deletion, portability, correction request) and draft the response — verify identity, locate data system-by-system, assess exemptions, draft the acknowledgment and substantive response letters. Use when a DSAR com…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Walk through a Data Subject Access Request (or deletion, portability, correction request) and draft the response — verify identity, locate data system-by-system, assess exemptions, draft the acknowledgment and substantive response letters.",
+    "keywords": "DSAR Response dsar-response privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/dsar-response/SKILL.md Walk through a Data Subject Access Request (or deletion, portability, correction request) and draft the response — verify identity, locate data system-by-system, assess exemptions, draft the acknowledgment and substantive response letters. 中国大陆 PRC 律师复核"
   },
   {
     "id": "privacy_legal_pia_generation",
@@ -568,8 +568,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "privacy-legal",
     "pluginTitle": "Privacy Legal",
     "skillPath": "privacy-legal/skills/pia-generation/SKILL.md",
-    "description": "Generate a Privacy Impact Assessment in house format for a new feature, product, or processing activity, using the structure learned from your seed PIA. Use when the user says \"write a PIA\", \"privacy impact assessment for\", \"do we need a PIA for this\", \"priva…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "PIA Generation pia-generation privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/pia-generation/SKILL.md Generate a Privacy Impact Assessment in house format for a new feature, product, or processing activity, using the structure learned from your seed PIA. Use when the user says \"write a PIA\", \"privacy impact assessment for\", \"do we need a PIA for this\", \"priva…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Generate a Privacy Impact Assessment in house format for a new feature, product, or processing activity, using the structure learned from your seed PIA.",
+    "keywords": "PIA Generation pia-generation privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/pia-generation/SKILL.md Generate a Privacy Impact Assessment in house format for a new feature, product, or processing activity, using the structure learned from your seed PIA. 中国大陆 PRC 律师复核"
   },
   {
     "id": "privacy_legal_policy_monitor",
@@ -578,8 +578,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "privacy-legal",
     "pluginTitle": "Privacy Legal",
     "skillPath": "privacy-legal/skills/policy-monitor/SKILL.md",
-    "description": "Keep the privacy policy current with practice. Two modes: weekly sweep of saved PIAs, DPA reviews, and triage results to find policy drift; or direct query for a proposed new practice. Use when the user asks \"does our policy cover this\", \"we want to start doi…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Policy Monitor policy-monitor privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/policy-monitor/SKILL.md Keep the privacy policy current with practice. Two modes: weekly sweep of saved PIAs, DPA reviews, and triage results to find policy drift; or direct query for a proposed new practice. Use when the user asks \"does our policy cover this\", \"we want to start doi…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Keep the privacy policy current with practice.",
+    "keywords": "Policy Monitor policy-monitor privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/policy-monitor/SKILL.md Keep the privacy policy current with practice. 中国大陆 PRC 律师复核"
   },
   {
     "id": "privacy_legal_reg_gap_analysis",
@@ -588,8 +588,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "privacy-legal",
     "pluginTitle": "Privacy Legal",
     "skillPath": "privacy-legal/skills/reg-gap-analysis/SKILL.md",
-    "description": "Diff a new or changed regulation against current privacy policy and practice — outputs a gap list and a remediation plan with owners and dates. Use when a new reg drops, the user asks \"does [regulation] affect us\", \"gap analysis for [state privacy law]\", \"com…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Reg Gap Analysis reg-gap-analysis privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/reg-gap-analysis/SKILL.md Diff a new or changed regulation against current privacy policy and practice — outputs a gap list and a remediation plan with owners and dates. Use when a new reg drops, the user asks \"does [regulation] affect us\", \"gap analysis for [state privacy law]\", \"com…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Diff a new or changed regulation against current privacy policy and practice — outputs a gap list and a remediation plan with owners and dates.",
+    "keywords": "Reg Gap Analysis reg-gap-analysis privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/reg-gap-analysis/SKILL.md Diff a new or changed regulation against current privacy policy and practice — outputs a gap list and a remediation plan with owners and dates. 中国大陆 PRC 律师复核"
   },
   {
     "id": "privacy_legal_use_case_triage",
@@ -598,8 +598,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "privacy-legal",
     "pluginTitle": "Privacy Legal",
     "skillPath": "privacy-legal/skills/use-case-triage/SKILL.md",
-    "description": "Quickly determine whether a processing activity needs a PIA, a mandatory GDPR DPIA, or can proceed — surfaces privacy policy conflicts and routes to the right next step. Use when the user asks \"does this need a PIA\", \"triage this feature\", \"privacy check on X…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Use Case Triage use-case-triage privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/use-case-triage/SKILL.md Quickly determine whether a processing activity needs a PIA, a mandatory GDPR DPIA, or can proceed — surfaces privacy policy conflicts and routes to the right next step. Use when the user asks \"does this need a PIA\", \"triage this feature\", \"privacy check on X…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Quickly determine whether a processing activity needs a PIA, a mandatory GDPR DPIA, or can proceed — surfaces privacy policy conflicts and routes to the right next step.",
+    "keywords": "Use Case Triage use-case-triage privacy-legal 数据合规与隐私 Privacy Legal privacy-legal/skills/use-case-triage/SKILL.md Quickly determine whether a processing activity needs a PIA, a mandatory GDPR DPIA, or can proceed — surfaces privacy policy conflicts and routes to the right next step. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_brief_section_drafter",
@@ -608,8 +608,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/brief-section-drafter/SKILL.md",
-    "description": "Draft a brief section in house style, consistent with the case theory — every fact cited, every case checked, every argument tied to the theory. Use when the user says \"draft the [section]\", \"write the statement of facts\", \"argument section on [issue]\", or ne…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Brief Section Drafter brief-section-drafter litigation-legal 争议解决 Litigation Legal litigation-legal/skills/brief-section-drafter/SKILL.md Draft a brief section in house style, consistent with the case theory — every fact cited, every case checked, every argument tied to the theory. Use when the user says \"draft the [section]\", \"write the statement of facts\", \"argument section on [issue]\", or ne…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft a brief section in house style, consistent with the case theory — every fact cited, every case checked, every argument tied to the theory.",
+    "keywords": "Brief Section Drafter brief-section-drafter litigation-legal 争议解决 Litigation Legal litigation-legal/skills/brief-section-drafter/SKILL.md Draft a brief section in house style, consistent with the case theory — every fact cited, every case checked, every argument tied to the theory. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_chronology",
@@ -618,8 +618,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/chronology/SKILL.md",
-    "description": "Build or update a chronology from declared document sources and uploads — dated events extracted, de-duped, and tagged by significance per the matter theory. Use when the user asks to build a chronology or timeline from a production or matter file, says \"chro…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Chronology chronology litigation-legal 争议解决 Litigation Legal litigation-legal/skills/chronology/SKILL.md Build or update a chronology from declared document sources and uploads — dated events extracted, de-duped, and tagged by significance per the matter theory. Use when the user asks to build a chronology or timeline from a production or matter file, says \"chro…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Build or update a chronology from declared document sources and uploads — dated events extracted, de-duped, and tagged by significance per the matter theory.",
+    "keywords": "Chronology chronology litigation-legal 争议解决 Litigation Legal litigation-legal/skills/chronology/SKILL.md Build or update a chronology from declared document sources and uploads — dated events extracted, de-duped, and tagged by significance per the matter theory. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_claim_chart",
@@ -628,8 +628,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/claim-chart/SKILL.md",
-    "description": "Build or review an element chart — a patent claim chart (infringement, invalidity, or review) or a civil element chart for any cause of action or defense — with every cell pin-cited and gap detection as the priority output. Use when the user asks for a claim …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Claim Chart claim-chart litigation-legal 争议解决 Litigation Legal litigation-legal/skills/claim-chart/SKILL.md Build or review an element chart — a patent claim chart (infringement, invalidity, or review) or a civil element chart for any cause of action or defense — with every cell pin-cited and gap detection as the priority output. Use when the user asks for a claim …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Build or review an element chart — a patent claim chart (infringement, invalidity, or review) or a civil element chart for any cause of action or defense — with every cell pin-cited and gap detection as the priority output.",
+    "keywords": "Claim Chart claim-chart litigation-legal 争议解决 Litigation Legal litigation-legal/skills/claim-chart/SKILL.md Build or review an element chart — a patent claim chart (infringement, invalidity, or review) or a civil element chart for any cause of action or defense — with every cell pin-cited and gap detection as the priority output. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_demand_draft",
@@ -638,8 +638,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/demand-draft/SKILL.md",
-    "description": "使用 Demand Draft 技能处理中国大陆争议解决工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。",
-    "keywords": "Demand Draft demand-draft litigation-legal 争议解决 Litigation Legal litigation-legal/skills/demand-draft/SKILL.md 使用 Demand Draft 技能处理中国大陆争议解决工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。 中国大陆 PRC 律师复核"
+    "description": "使用 Demand Draft 技能处理中国大陆争议解决工作流。",
+    "keywords": "Demand Draft demand-draft litigation-legal 争议解决 Litigation Legal litigation-legal/skills/demand-draft/SKILL.md 使用 Demand Draft 技能处理中国大陆争议解决工作流。 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_demand_intake",
@@ -648,8 +648,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/demand-intake/SKILL.md",
-    "description": "Pre-drafting context gathering for a demand letter — parties, facts, basis, leverage, BATNA, and privilege filters — written to a structured intake.md the demand-draft skill reads. Use when the user wants to prep a demand letter, run intake before drafting, o…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Demand Intake demand-intake litigation-legal 争议解决 Litigation Legal litigation-legal/skills/demand-intake/SKILL.md Pre-drafting context gathering for a demand letter — parties, facts, basis, leverage, BATNA, and privilege filters — written to a structured intake.md the demand-draft skill reads. Use when the user wants to prep a demand letter, run intake before drafting, o…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Pre-drafting context gathering for a demand letter — parties, facts, basis, leverage, BATNA, and privilege filters — written to a structured intake.md the demand-draft skill reads.",
+    "keywords": "Demand Intake demand-intake litigation-legal 争议解决 Litigation Legal litigation-legal/skills/demand-intake/SKILL.md Pre-drafting context gathering for a demand letter — parties, facts, basis, leverage, BATNA, and privilege filters — written to a structured intake.md the demand-draft skill reads. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_demand_received",
@@ -658,8 +658,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/demand-received/SKILL.md",
-    "description": "Triage an inbound demand letter — extract fields, cross-check the portfolio, assess merit, present response options with a recommendation, and hand off to matter-intake or demand-intake if escalation is warranted. Use when the user says \"we got a demand lette…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Demand Received demand-received litigation-legal 争议解决 Litigation Legal litigation-legal/skills/demand-received/SKILL.md Triage an inbound demand letter — extract fields, cross-check the portfolio, assess merit, present response options with a recommendation, and hand off to matter-intake or demand-intake if escalation is warranted. Use when the user says \"we got a demand lette…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Triage an inbound demand letter — extract fields, cross-check the portfolio, assess merit, present response options with a recommendation, and hand off to matter-intake or demand-intake if escalation is warranted.",
+    "keywords": "Demand Received demand-received litigation-legal 争议解决 Litigation Legal litigation-legal/skills/demand-received/SKILL.md Triage an inbound demand letter — extract fields, cross-check the portfolio, assess merit, present response options with a recommendation, and hand off to matter-intake or demand-intake if escalation is warranted. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_deposition_prep",
@@ -668,8 +668,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/deposition-prep/SKILL.md",
-    "description": "Build a deposition outline for a witness — pull their documents from the eDiscovery platform, organize topics around the case theory, and surface impeachment material. Use when the user says \"depo prep for [witness]\", \"build a depo outline\", or \"prepare for […（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Deposition Prep deposition-prep litigation-legal 争议解决 Litigation Legal litigation-legal/skills/deposition-prep/SKILL.md Build a deposition outline for a witness — pull their documents from the eDiscovery platform, organize topics around the case theory, and surface impeachment material. Use when the user says \"depo prep for [witness]\", \"build a depo outline\", or \"prepare for […（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Build a deposition outline for a witness — pull their documents from the eDiscovery platform, organize topics around the case theory, and surface impeachment material.",
+    "keywords": "Deposition Prep deposition-prep litigation-legal 争议解决 Litigation Legal litigation-legal/skills/deposition-prep/SKILL.md Build a deposition outline for a witness — pull their documents from the eDiscovery platform, organize topics around the case theory, and surface impeachment material. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_legal_hold",
@@ -678,8 +678,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/legal-hold/SKILL.md",
-    "description": "Issue, refresh, release, or report on legal holds — drafts the hold notice as .docx, updates legal_hold fields in _log.yaml, and calendars the next refresh. Use when the user says \"issue a hold\", \"refresh hold\", \"release hold\", or asks for a portfolio-wide ho…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Legal Hold legal-hold litigation-legal 争议解决 Litigation Legal litigation-legal/skills/legal-hold/SKILL.md Issue, refresh, release, or report on legal holds — drafts the hold notice as .docx, updates legal_hold fields in _log.yaml, and calendars the next refresh. Use when the user says \"issue a hold\", \"refresh hold\", \"release hold\", or asks for a portfolio-wide ho…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Issue, refresh, release, or report on legal holds — drafts the hold notice as .docx, updates legal_hold fields in _log.yaml, and calendars the next refresh.",
+    "keywords": "Legal Hold legal-hold litigation-legal 争议解决 Litigation Legal litigation-legal/skills/legal-hold/SKILL.md Issue, refresh, release, or report on legal holds — drafts the hold notice as .docx, updates legal_hold fields in _log.yaml, and calendars the next refresh. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_matter_briefing",
@@ -688,8 +688,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/matter-briefing/SKILL.md",
-    "description": "Deep briefing on one matter — current posture, what's changed, next deadline, open questions, and a risk re-assessment check, ready before a GC update or outside counsel call. Use when the user says \"brief me on [matter]\", \"where are we on [matter]\", or needs…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Matter Briefing matter-briefing litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-briefing/SKILL.md Deep briefing on one matter — current posture, what's changed, next deadline, open questions, and a risk re-assessment check, ready before a GC update or outside counsel call. Use when the user says \"brief me on [matter]\", \"where are we on [matter]\", or needs…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Deep briefing on one matter — current posture, what's changed, next deadline, open questions, and a risk re-assessment check, ready before a GC update or outside counsel call.",
+    "keywords": "Matter Briefing matter-briefing litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-briefing/SKILL.md Deep briefing on one matter — current posture, what's changed, next deadline, open questions, and a risk re-assessment check, ready before a GC update or outside counsel call. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_matter_close",
@@ -698,8 +698,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/matter-close/SKILL.md",
-    "description": "Close a matter — capture outcome, final exposure, and lessons, then archive it out of the active portfolio without deleting the record. Use when the user wants to close a matter, says \"[matter] is done\", or needs to record a settlement, dismissal, judgment, w…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Matter Close matter-close litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-close/SKILL.md Close a matter — capture outcome, final exposure, and lessons, then archive it out of the active portfolio without deleting the record. Use when the user wants to close a matter, says \"[matter] is done\", or needs to record a settlement, dismissal, judgment, w…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Close a matter — capture outcome, final exposure, and lessons, then archive it out of the active portfolio without deleting the record.",
+    "keywords": "Matter Close matter-close litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-close/SKILL.md Close a matter — capture outcome, final exposure, and lessons, then archive it out of the active portfolio without deleting the record. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_matter_intake",
@@ -708,8 +708,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/matter-intake/SKILL.md",
-    "description": "Intake a new matter — uniform questions covering identification, conflicts, source, risk triage, materiality, outside counsel, owners, legal hold, and key dates; writes matter.md and history.md and appends a structured row to _log.yaml. Use when the user says…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Matter Intake matter-intake litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-intake/SKILL.md Intake a new matter — uniform questions covering identification, conflicts, source, risk triage, materiality, outside counsel, owners, legal hold, and key dates; writes matter.md and history.md and appends a structured row to _log.yaml. Use when the user says…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Intake a new matter — uniform questions covering identification, conflicts, source, risk triage, materiality, outside counsel, owners, legal hold, and key dates; writes matter.md and history.md and appends a structured row to _log.yaml.",
+    "keywords": "Matter Intake matter-intake litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-intake/SKILL.md Intake a new matter — uniform questions covering identification, conflicts, source, risk triage, materiality, outside counsel, owners, legal hold, and key dates; writes matter.md and history.md and appends a structured row to _log.yaml. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_matter_update",
@@ -718,8 +718,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/matter-update/SKILL.md",
-    "description": "Append a dated event to a matter's history file and refresh the log row — captures new developments, status changes, risk re-assessments, deadline shifts, and settlement authority changes. Use when the user wants to log an update on a matter, note a developme…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Matter Update matter-update litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-update/SKILL.md Append a dated event to a matter's history file and refresh the log row — captures new developments, status changes, risk re-assessments, deadline shifts, and settlement authority changes. Use when the user wants to log an update on a matter, note a developme…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Append a dated event to a matter's history file and refresh the log row — captures new developments, status changes, risk re-assessments, deadline shifts, and settlement authority changes.",
+    "keywords": "Matter Update matter-update litigation-legal 争议解决 Litigation Legal litigation-legal/skills/matter-update/SKILL.md Append a dated event to a matter's history file and refresh the log row — captures new developments, status changes, risk re-assessments, deadline shifts, and settlement authority changes. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_oc_status",
@@ -728,8 +728,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/oc-status/SKILL.md",
-    "description": "Generate weekly status-request email drafts to outside counsel across the active portfolio — markdown per matter, plus Gmail drafts when the MCP is available. Use when the user asks for OC status requests, weekly outside counsel check-ins, or wants per-matter…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Oc Status oc-status litigation-legal 争议解决 Litigation Legal litigation-legal/skills/oc-status/SKILL.md Generate weekly status-request email drafts to outside counsel across the active portfolio — markdown per matter, plus Gmail drafts when the MCP is available. Use when the user asks for OC status requests, weekly outside counsel check-ins, or wants per-matter…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Generate weekly status-request email drafts to outside counsel across the active portfolio — markdown per matter, plus Gmail drafts when the MCP is available.",
+    "keywords": "Oc Status oc-status litigation-legal 争议解决 Litigation Legal litigation-legal/skills/oc-status/SKILL.md Generate weekly status-request email drafts to outside counsel across the active portfolio — markdown per matter, plus Gmail drafts when the MCP is available. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_portfolio_status",
@@ -738,8 +738,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/portfolio-status/SKILL.md",
-    "description": "Roll up the portfolio from _log.yaml — risk distribution, upcoming deadlines, stale matters, materiality totals, stage distribution, and flagged anomalies. Use when the user asks \"where do we stand\", \"how many open matters\", or wants a portfolio rollup or sta…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Portfolio Status portfolio-status litigation-legal 争议解决 Litigation Legal litigation-legal/skills/portfolio-status/SKILL.md Roll up the portfolio from _log.yaml — risk distribution, upcoming deadlines, stale matters, materiality totals, stage distribution, and flagged anomalies. Use when the user asks \"where do we stand\", \"how many open matters\", or wants a portfolio rollup or sta…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Roll up the portfolio from _log.yaml — risk distribution, upcoming deadlines, stale matters, materiality totals, stage distribution, and flagged anomalies.",
+    "keywords": "Portfolio Status portfolio-status litigation-legal 争议解决 Litigation Legal litigation-legal/skills/portfolio-status/SKILL.md Roll up the portfolio from _log.yaml — risk distribution, upcoming deadlines, stale matters, materiality totals, stage distribution, and flagged anomalies. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_privilege_log_review",
@@ -748,8 +748,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/privilege-log-review/SKILL.md",
-    "description": "First-pass privilege log review — make the obvious privilege calls and flag the hard ones for attorney review without making close calls. Use when the user says \"review the privilege log\", \"priv log\", \"check privilege on these docs\", or has a log to QA before…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Privilege Log Review privilege-log-review litigation-legal 争议解决 Litigation Legal litigation-legal/skills/privilege-log-review/SKILL.md First-pass privilege log review — make the obvious privilege calls and flag the hard ones for attorney review without making close calls. Use when the user says \"review the privilege log\", \"priv log\", \"check privilege on these docs\", or has a log to QA before…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "First-pass privilege log review — make the obvious privilege calls and flag the hard ones for attorney review without making close calls.",
+    "keywords": "Privilege Log Review privilege-log-review litigation-legal 争议解决 Litigation Legal litigation-legal/skills/privilege-log-review/SKILL.md First-pass privilege log review — make the obvious privilege calls and flag the hard ones for attorney review without making close calls. 中国大陆 PRC 律师复核"
   },
   {
     "id": "litigation_legal_subpoena_triage",
@@ -758,8 +758,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "litigation-legal",
     "pluginTitle": "Litigation Legal",
     "skillPath": "litigation-legal/skills/subpoena-triage/SKILL.md",
-    "description": "Triage a subpoena served on the company — classify it, analyze scope/burden/privilege, cross-check the portfolio, and produce an objections framework, compliance plan, and deadline calendar. Use when the user says \"we got a subpoena\", \"served with a subpoena\"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Subpoena Triage subpoena-triage litigation-legal 争议解决 Litigation Legal litigation-legal/skills/subpoena-triage/SKILL.md Triage a subpoena served on the company — classify it, analyze scope/burden/privilege, cross-check the portfolio, and produce an objections framework, compliance plan, and deadline calendar. Use when the user says \"we got a subpoena\", \"served with a subpoena\"…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Triage a subpoena served on the company — classify it, analyze scope/burden/privilege, cross-check the portfolio, and produce an objections framework, compliance plan, and deadline calendar.",
+    "keywords": "Subpoena Triage subpoena-triage litigation-legal 争议解决 Litigation Legal litigation-legal/skills/subpoena-triage/SKILL.md Triage a subpoena served on the company — classify it, analyze scope/burden/privilege, cross-check the portfolio, and produce an objections framework, compliance plan, and deadline calendar. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_cease_desist",
@@ -768,8 +768,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/cease-desist/SKILL.md",
-    "description": "Draft a cease-and-desist letter (send mode) or triage one you received (receive mode). Use when asserting your rights against an infringer with a demand letter calibrated to your enforcement posture, or when an incoming C&D needs triage into a structured opti…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Cease Desist cease-desist ip-legal 知识产权 IP Legal ip-legal/skills/cease-desist/SKILL.md Draft a cease-and-desist letter (send mode) or triage one you received (receive mode). Use when asserting your rights against an infringer with a demand letter calibrated to your enforcement posture, or when an incoming C&D needs triage into a structured opti…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Draft a cease-and-desist letter (send mode) or triage one you received (receive mode).",
+    "keywords": "Cease Desist cease-desist ip-legal 知识产权 IP Legal ip-legal/skills/cease-desist/SKILL.md Draft a cease-and-desist letter (send mode) or triage one you received (receive mode). 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_clearance",
@@ -778,8 +778,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/clearance/SKILL.md",
-    "description": "Trademark clearance first pass — knockout + similar-marks check producing a flag list, not a clearance opinion. Use when a new mark is proposed, when asked whether a mark is available or to run a knockout search, or when assessing likelihood-of-confusion fact…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Clearance clearance ip-legal 知识产权 IP Legal ip-legal/skills/clearance/SKILL.md Trademark clearance first pass — knockout + similar-marks check producing a flag list, not a clearance opinion. Use when a new mark is proposed, when asked whether a mark is available or to run a knockout search, or when assessing likelihood-of-confusion fact…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Trademark clearance first pass — knockout + similar-marks check producing a flag list, not a clearance opinion.",
+    "keywords": "Clearance clearance ip-legal 知识产权 IP Legal ip-legal/skills/clearance/SKILL.md Trademark clearance first pass — knockout + similar-marks check producing a flag list, not a clearance opinion. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_fto_triage",
@@ -788,8 +788,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/fto-triage/SKILL.md",
-    "description": "Freedom-to-operate triage — a structured first look at potentially blocking patents, not an FTO opinion. Use when a product, process, or feature is being evaluated for blocking patents, when asked whether anything stops a launch, or to build a claim-chart fir…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "FTO Triage fto-triage ip-legal 知识产权 IP Legal ip-legal/skills/fto-triage/SKILL.md Freedom-to-operate triage — a structured first look at potentially blocking patents, not an FTO opinion. Use when a product, process, or feature is being evaluated for blocking patents, when asked whether anything stops a launch, or to build a claim-chart fir…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Freedom-to-operate triage — a structured first look at potentially blocking patents, not an FTO opinion.",
+    "keywords": "FTO Triage fto-triage ip-legal 知识产权 IP Legal ip-legal/skills/fto-triage/SKILL.md Freedom-to-operate triage — a structured first look at potentially blocking patents, not an FTO opinion. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_infringement_triage",
@@ -798,8 +798,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/infringement-triage/SKILL.md",
-    "description": "Infringement triage across trademark, copyright, patent, and trade secret — a flag list with the factors cutting each way, not a finding. Use when assessing whether someone is infringing your IP or whether you might be infringing theirs, when a knockoff or co…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Infringement Triage infringement-triage ip-legal 知识产权 IP Legal ip-legal/skills/infringement-triage/SKILL.md Infringement triage across trademark, copyright, patent, and trade secret — a flag list with the factors cutting each way, not a finding. Use when assessing whether someone is infringing your IP or whether you might be infringing theirs, when a knockoff or co…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Infringement triage across trademark, copyright, patent, and trade secret — a flag list with the factors cutting each way, not a finding.",
+    "keywords": "Infringement Triage infringement-triage ip-legal 知识产权 IP Legal ip-legal/skills/infringement-triage/SKILL.md Infringement triage across trademark, copyright, patent, and trade secret — a flag list with the factors cutting each way, not a finding. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_invention_intake",
@@ -808,8 +808,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/invention-intake/SKILL.md",
-    "description": "Invention disclosure first-pass screen — novelty, obviousness, §101 eligibility, bar dates, detectability, and strategic value. Use when an invention disclosure comes in and needs triage on whether to pursue a prior-art search and patent counsel review, inves…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Invention Intake invention-intake ip-legal 知识产权 IP Legal ip-legal/skills/invention-intake/SKILL.md Invention disclosure first-pass screen — novelty, obviousness, §101 eligibility, bar dates, detectability, and strategic value. Use when an invention disclosure comes in and needs triage on whether to pursue a prior-art search and patent counsel review, inves…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Invention disclosure first-pass screen — novelty, obviousness, §101 eligibility, bar dates, detectability, and strategic value.",
+    "keywords": "Invention Intake invention-intake ip-legal 知识产权 IP Legal ip-legal/skills/invention-intake/SKILL.md Invention disclosure first-pass screen — novelty, obviousness, §101 eligibility, bar dates, detectability, and strategic value. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_ip_clause_review",
@@ -818,8 +818,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/ip-clause-review/SKILL.md",
-    "description": "Review the IP clauses in an agreement — assignment, ownership, license grants, warranties, indemnities. Use when reviewing IP terms in employment, consulting, SOW, vendor, or licensing agreements, when asked to check the assignment language or license scope, …（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "IP Clause Review ip-clause-review ip-legal 知识产权 IP Legal ip-legal/skills/ip-clause-review/SKILL.md Review the IP clauses in an agreement — assignment, ownership, license grants, warranties, indemnities. Use when reviewing IP terms in employment, consulting, SOW, vendor, or licensing agreements, when asked to check the assignment language or license scope, …（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Review the IP clauses in an agreement — assignment, ownership, license grants, warranties, indemnities.",
+    "keywords": "IP Clause Review ip-clause-review ip-legal 知识产权 IP Legal ip-legal/skills/ip-clause-review/SKILL.md Review the IP clauses in an agreement — assignment, ownership, license grants, warranties, indemnities. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_oss_review",
@@ -828,8 +828,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/oss-review/SKILL.md",
-    "description": "Open source license compliance check for a dependency list, a single library, or outbound code. Use when reviewing a manifest, SBOM, or repo for copyleft obligations and license compatibility, when asked whether a library can ship, or when preparing code to b…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "OSS Review oss-review ip-legal 知识产权 IP Legal ip-legal/skills/oss-review/SKILL.md Open source license compliance check for a dependency list, a single library, or outbound code. Use when reviewing a manifest, SBOM, or repo for copyleft obligations and license compatibility, when asked whether a library can ship, or when preparing code to b…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Open source license compliance check for a dependency list, a single library, or outbound code.",
+    "keywords": "OSS Review oss-review ip-legal 知识产权 IP Legal ip-legal/skills/oss-review/SKILL.md Open source license compliance check for a dependency list, a single library, or outbound code. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_portfolio",
@@ -838,8 +838,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/portfolio/SKILL.md",
-    "description": "Track the IP portfolio — registrations, renewals, maintenance fees, and use declarations. Use when checking what's renewing, adding or updating an asset, recording a maintenance filing, or auditing the register for gaps, lapses, and use-in-commerce questions.…（中国大陆本地化规则优先；外国法仅在明确要求时适用。）",
-    "keywords": "Portfolio portfolio ip-legal 知识产权 IP Legal ip-legal/skills/portfolio/SKILL.md Track the IP portfolio — registrations, renewals, maintenance fees, and use declarations. Use when checking what's renewing, adding or updating an asset, recording a maintenance filing, or auditing the register for gaps, lapses, and use-in-commerce questions.…（中国大陆本地化规则优先；外国法仅在明确要求时适用。） 中国大陆 PRC 律师复核"
+    "description": "Track the IP portfolio — registrations, renewals, maintenance fees, and use declarations.",
+    "keywords": "Portfolio portfolio ip-legal 知识产权 IP Legal ip-legal/skills/portfolio/SKILL.md Track the IP portfolio — registrations, renewals, maintenance fees, and use declarations. 中国大陆 PRC 律师复核"
   },
   {
     "id": "ip_legal_takedown",
@@ -848,8 +848,8 @@ export const EXPERT_SKILLS: ExpertSkill[] = [
     "plugin": "ip-legal",
     "pluginTitle": "IP Legal",
     "skillPath": "ip-legal/skills/takedown/SKILL.md",
-    "description": "使用 Takedown 技能处理中国大陆知识产权工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。",
-    "keywords": "Takedown takedown ip-legal 知识产权 IP Legal ip-legal/skills/takedown/SKILL.md 使用 Takedown 技能处理中国大陆知识产权工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。 中国大陆 PRC 律师复核"
+    "description": "使用 Takedown 技能处理中国大陆知识产权工作流。",
+    "keywords": "Takedown takedown ip-legal 知识产权 IP Legal ip-legal/skills/takedown/SKILL.md 使用 Takedown 技能处理中国大陆知识产权工作流。 中国大陆 PRC 律师复核"
   }
 ];
 

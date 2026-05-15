@@ -73,6 +73,9 @@ for (const skill of expertSkills) {
 
 const realDescriptionCount = expertSkills.filter((skill) => !skill.description.startsWith("使用 ")).length;
 assert.ok(realDescriptionCount > expertSkills.length / 2, "expert cards should expose real skill descriptions, not generic labels only");
+for (const skill of expertSkills) {
+  assert.doesNotMatch(skill.description, /（中国大陆本地化规则优先/, "expert descriptions should show only the first sentence");
+}
 
 assert.doesNotMatch(expertSkillsSource, /## China Localization|Matter context|Destination check/, "GET /api/skills metadata must not contain full skill prompt text");
 assert.doesNotMatch(expertSkillsSource, /Delaware|FRCP|FRE|DMCA|FMLA/, "expert catalog must not expose US-law defaults");
