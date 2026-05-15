@@ -71,6 +71,9 @@ for (const skill of expertSkills) {
   assert.match(skillContextsSource, new RegExp(`"${skill.id}"`), `expert context missing: ${skill.id}`);
 }
 
+const realDescriptionCount = expertSkills.filter((skill) => !skill.description.startsWith("使用 ")).length;
+assert.ok(realDescriptionCount > expertSkills.length / 2, "expert cards should expose real skill descriptions, not generic labels only");
+
 assert.doesNotMatch(expertSkillsSource, /## China Localization|Matter context|Destination check/, "GET /api/skills metadata must not contain full skill prompt text");
 assert.doesNotMatch(expertSkillsSource, /Delaware|FRCP|FRE|DMCA|FMLA/, "expert catalog must not expose US-law defaults");
 
@@ -93,6 +96,7 @@ assert.doesNotMatch(workerSource, /localStorage/, "worker must not use localStor
 assert.match(indexSource, /专家模式/, "UI has Expert Mode switch");
 assert.match(appSource, /loadSkills/, "UI loads expert skills");
 assert.match(appSource, /filteredSkills/, "UI supports expert skill search/filter");
+assert.match(appSource, /card\.querySelector\("p"\)\.textContent = skill\.description/, "UI renders expert skill descriptions");
 assert.match(appSource, /skillSearch/, "UI includes skill search");
 assert.match(appSource, /practiceFilter/, "UI includes practice-area filter");
 assert.match(appSource, /sessionStorage/, "UI supports optional session-only retention");

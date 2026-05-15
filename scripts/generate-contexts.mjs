@@ -81,6 +81,51 @@ function walkSkillFiles(dir) {
   return out;
 }
 
+function parseSkillFrontmatter(markdown) {
+  if (!markdown.startsWith("---\n")) return {};
+  const end = markdown.indexOf("\n---", 4);
+  if (end === -1) return {};
+  const frontmatter = markdown.slice(4, end).split("\n");
+  const data = {};
+
+  for (let i = 0; i < frontmatter.length; i += 1) {
+    const line = frontmatter[i];
+    const match = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+    if (!match) continue;
+
+    const key = match[1];
+    let value = match[2].trim();
+    if (value === ">" || value === "|") {
+      const lines = [];
+      while (frontmatter[i + 1]?.startsWith("  ")) {
+        i += 1;
+        lines.push(frontmatter[i].trim());
+      }
+      value = lines.join(" ");
+    }
+
+    data[key] = value.replace(/^['"]|['"]$/g, "").replace(/\s+/g, " ").trim();
+  }
+
+  return data;
+}
+
+function safeDisplayDescription(rawDescription, title, practiceArea) {
+  const fallback = `使用 ${title} 技能处理中国大陆${practiceArea}工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。`;
+  if (!rawDescription) return fallback;
+
+  const normalized = rawDescription.replace(/\s+/g, " ").trim();
+  if (!normalized) return fallback;
+
+  // Some legacy upstream descriptions still name foreign-law-only workflows. Keep
+  // Expert Mode metadata China-first and avoid presenting those as default use.
+  if (/\b(Delaware|FRCP|FRE|DMCA|FMLA)\b/i.test(normalized)) return fallback;
+
+  const suffix = "（中国大陆本地化规则优先；外国法仅在明确要求时适用。）";
+  const maxLength = 260;
+  const clipped = normalized.length > maxLength ? `${normalized.slice(0, maxLength - 1)}…` : normalized;
+  return `${clipped}${suffix}`;
+}
 
 function buildExpertSkills(skillsRoot) {
   return walkSkillFiles(skillsRoot)
@@ -92,7 +137,10 @@ function buildExpertSkills(skillsRoot) {
       if (!INCLUDED_PLUGINS.has(plugin) || EXCLUDED_SKILLS.has(skillSlug)) return null;
 
       const labels = PLUGIN_LABELS[plugin];
+      const skillMarkdown = readFileSync(fullPath, "utf8");
+      const frontmatter = parseSkillFrontmatter(skillMarkdown);
       const title = humanizeSkillName(skillSlug);
+      const description = safeDisplayDescription(frontmatter.description, title, labels.practiceArea);
       return {
         id: toId(plugin, skillSlug),
         title,
@@ -100,7 +148,7 @@ function buildExpertSkills(skillsRoot) {
         plugin,
         pluginTitle: labels.pluginTitle,
         skillPath,
-        description: `使用 ${title} 技能处理中国大陆${labels.practiceArea}工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。`,
+        description,
         keywords: [
           title,
           skillSlug,
@@ -108,6 +156,7 @@ function buildExpertSkills(skillsRoot) {
           labels.practiceArea,
           labels.pluginTitle,
           skillPath,
+          description,
           "中国大陆",
           "PRC",
           "律师复核"
