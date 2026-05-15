@@ -2,7 +2,7 @@
 
 A standalone BYOK online tool for trying China-localized legal skills in a browser.
 
-The app is separate from `claude-for-legal-cn` and consumes that skills repository through a pinned Git submodule at `vendor/claude-for-legal-cn`.
+The app is separate from `claude-for-legal-cn` and consumes that skills repository through a pinned Git submodule at `vendor/claude-for-legal-cn`. The submodule URL uses HTTPS so Cloudflare Git deployments can clone it without SSH key setup when the skills repo is public.
 
 ## What It Does
 

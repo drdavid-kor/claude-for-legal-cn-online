@@ -6,7 +6,7 @@ if [ ! -d .git ]; then
 fi
 
 if [ ! -d vendor/claude-for-legal-cn/.git ] && [ ! -f vendor/claude-for-legal-cn/.git ]; then
-  git submodule add git@github.com:drdavid-kor/claude-for-legal-cn.git vendor/claude-for-legal-cn
+  git submodule add https://github.com/drdavid-kor/claude-for-legal-cn.git vendor/claude-for-legal-cn
 fi
 
 git remote remove origin >/dev/null 2>&1 || true
