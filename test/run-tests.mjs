@@ -96,8 +96,16 @@ assert.match(workerSource, /未知专家技能/, "worker rejects unknown skillId
 assert.match(workerSource, /未知场景/, "worker rejects unknown scenarioId");
 assert.doesNotMatch(workerSource, /localStorage/, "worker must not use localStorage");
 
-assert.match(indexSource, /专家模式/, "UI has Expert Mode switch");
+assert.doesNotMatch(indexSource, /演示模式|专家模式/, "UI hides Demo/Expert mode switch");
+assert.match(indexSource, /class="workspace"/, "UI renders the 3-column workspace container");
+assert.match(indexSource, /skills-column/, "UI renders Skills column");
+assert.match(indexSource, /input-column/, "UI renders Input column");
+assert.match(indexSource, /output-column/, "UI renders Output column");
+assert.match(indexSource, /settingsDrawer/, "UI includes Settings drawer");
+assert.match(indexSource, /File Upload/, "UI includes disabled file upload affordance");
+assert.match(indexSource, /Save As/, "UI includes Save As action");
 assert.match(appSource, /loadSkills/, "UI loads expert skills");
+assert.doesNotMatch(appSource, /loadScenarios|selectedScenario|setMode|demoMode|expertMode/, "UI does not use demo-mode frontend flow");
 assert.match(appSource, /filteredSkills/, "UI supports expert skill search/filter");
 assert.match(appSource, /card\.querySelector\("p"\)\.textContent = skill\.description/, "UI renders expert skill descriptions");
 assert.match(appSource, /skillSearch/, "UI includes skill search");
@@ -106,6 +114,9 @@ assert.match(appSource, /sessionStorage/, "UI supports optional session-only ret
 assert.doesNotMatch(appSource, /localStorage/, "UI must not use localStorage");
 assert.match(appSource, /clearAll/, "UI includes clear data behavior");
 assert.match(appSource, /navigator\.clipboard\.writeText/, "UI can copy markdown output");
+assert.match(appSource, /saveOutputAsMarkdown/, "UI can save markdown output");
+assert.match(appSource, /new Blob\(\[content\]/, "Save As downloads current output as Markdown");
+assert.match(appSource, /openSettings/, "UI opens settings drawer");
 
 assert.match(scenariosSource, /中国大陆|PRC/, "scenario source includes PRC-mainland default language");
 assert.match(promptSource, /供合格律师复核的工作草稿/, "legal safety wrapper requires lawyer review");

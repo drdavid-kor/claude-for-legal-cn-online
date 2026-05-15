@@ -8,111 +8,126 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="warning">⚠ 所有输出均为供合格律师复核的草稿，不构成法律意见。不得未经律师确认而提交、发送、签署或依赖。</div>
+  <div class="app-shell">
+    <header class="app-bar">
+      <div class="brand-lockup">
+        <div class="seal" aria-hidden="true">法</div>
+        <div>
+          <p class="eyebrow">CLAUDE FOR LEGAL CN ONLINE</p>
+          <h1>中国法律技能工作台</h1>
+        </div>
+      </div>
+      <p class="bar-warning">输出仅为律师复核草稿，不构成法律意见。默认法域：中国大陆 / PRC。</p>
+      <button id="openSettings" type="button" class="settings-button" aria-controls="settingsDrawer" aria-expanded="false">配置模型</button>
+    </header>
 
-  <header class="hero">
-    <div class="seal">法</div>
-    <div>
-      <p class="eyebrow">BYOK · OpenAI-Compatible · No Persistence</p>
-      <h1>Claude for Legal CN Online</h1>
-      <p class="lede">选择演示场景快速体验，或切换专家模式直接调用中国本地化法律技能。填入你自己的模型 endpoint 和 API Key，即可在线生成律师复核草稿。</p>
+    <main class="workspace" aria-label="法律技能工作区">
+      <section class="column skills-column" aria-labelledby="skillsTitle">
+        <div class="column-head">
+          <div>
+            <p class="kicker">Skills</p>
+            <h2 id="skillsTitle">选择技能</h2>
+          </div>
+          <span id="skillCount" class="count-pill">0</span>
+        </div>
+
+        <div class="skill-tools">
+          <label>搜索技能
+            <input id="skillSearch" autocomplete="off" spellcheck="false" placeholder="搜索技能、领域或关键词" />
+          </label>
+          <label>执业领域
+            <select id="practiceFilter">
+              <option value="">全部领域</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="skillList" class="skill-list" aria-live="polite"></div>
+      </section>
+
+      <section class="column input-column" aria-labelledby="inputTitle">
+        <div class="column-head">
+          <div>
+            <p class="kicker">Input</p>
+            <h2 id="inputTitle">输入事实 / 文本</h2>
+          </div>
+          <span class="status-dot" aria-hidden="true"></span>
+        </div>
+
+        <article id="selectedSkillSummary" class="selected-skill-summary">正在加载技能目录……</article>
+
+        <label class="input-label">事项事实、合同条款、制度文本或问题
+          <textarea id="userInput" rows="18" placeholder="请选择左侧技能，然后粘贴要处理的事实、合同条款、制度文本或问题。"></textarea>
+        </label>
+
+        <div class="upload-disabled" aria-disabled="true">
+          <div>
+            <strong>文件上传</strong>
+            <span>暂未开放；请先自行提取文本后粘贴。</span>
+          </div>
+          <button type="button" disabled>File Upload</button>
+        </div>
+
+        <div class="input-actions">
+          <button id="fillExample" type="button" class="secondary">填入模板</button>
+          <button id="clearAll" type="button" class="secondary danger">清空本页数据</button>
+          <button id="generate" type="button" class="primary">Send</button>
+        </div>
+        <p id="status" class="status" role="status"></p>
+      </section>
+
+      <section class="column output-column" aria-labelledby="outputTitle">
+        <div class="column-head">
+          <div>
+            <p class="kicker">Output</p>
+            <h2 id="outputTitle">生成结果</h2>
+          </div>
+          <div class="output-actions">
+            <button id="copyOutput" type="button" class="secondary compact">Copy</button>
+            <button id="saveOutput" type="button" class="secondary compact">Save As</button>
+          </div>
+        </div>
+
+        <div class="review-note">请先由合格律师复核，再对外发送、提交、签署、备案、起诉、仲裁申请或据以行动。</div>
+        <article id="output" class="markdown-output">等待生成。请选择左侧技能，在中间粘贴文本，并确认右上角模型配置。</article>
+      </section>
+    </main>
+  </div>
+
+  <div id="settingsBackdrop" class="settings-backdrop hidden"></div>
+  <aside id="settingsDrawer" class="settings-drawer" aria-hidden="true" aria-labelledby="settingsTitle">
+    <div class="drawer-head">
+      <div>
+        <p class="kicker">BYOK Settings</p>
+        <h2 id="settingsTitle">配置模型</h2>
+      </div>
+      <button id="closeSettings" type="button" class="icon-button" aria-label="关闭设置">×</button>
     </div>
-  </header>
 
-  <main class="layout">
-    <section class="panel scenarios-panel">
-      <div class="panel-head">
-        <span class="step">1</span>
-        <div>
-          <h2 id="selectorTitle">选择场景</h2>
-          <p id="selectorHint">演示模式提供精选高频场景；专家模式可搜索律师实务技能。</p>
-        </div>
-      </div>
+    <p class="drawer-copy">支持 OpenAI-compatible API。API Key 默认只保存在内存；勾选后仅保存在本标签页 sessionStorage。</p>
 
-      <div class="mode-switch" role="group" aria-label="Tool mode">
-        <button id="demoMode" type="button" class="active" data-mode="demo">演示模式</button>
-        <button id="expertMode" type="button" data-mode="expert">专家模式</button>
-      </div>
+    <div class="presets" role="group" aria-label="Provider presets">
+      <button type="button" data-preset="openrouter">OpenRouter</button>
+      <button type="button" data-preset="siliconflow">SiliconFlow</button>
+      <button type="button" data-preset="deepseek">DeepSeek</button>
+    </div>
 
-      <div id="expertControls" class="expert-controls hidden">
-        <label>搜索技能
-          <input id="skillSearch" autocomplete="off" spellcheck="false" placeholder="输入技能、领域、插件或关键词" />
-        </label>
-        <label>执业领域
-          <select id="practiceFilter">
-            <option value="">全部领域</option>
-          </select>
-        </label>
-      </div>
+    <label>Base URL
+      <input id="baseUrl" autocomplete="off" spellcheck="false" placeholder="https://api.siliconflow.cn/v1" />
+    </label>
+    <label>Model
+      <input id="model" autocomplete="off" spellcheck="false" placeholder="deepseek-ai/DeepSeek-V4-Flash" />
+    </label>
+    <label>API Key
+      <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="只用于本次请求" />
+    </label>
+    <label class="checkbox">
+      <input id="rememberTab" type="checkbox" />
+      <span>本标签页记住配置（sessionStorage，不跨标签页）</span>
+    </label>
 
-      <div id="selectorList" class="scenario-list" aria-live="polite"></div>
-    </section>
-
-    <section class="panel config-panel">
-      <div class="panel-head">
-        <span class="step">2</span>
-        <div>
-          <h2>配置模型</h2>
-          <p>支持 OpenAI-compatible API。Key 默认只保存在内存。</p>
-        </div>
-      </div>
-
-      <div class="presets" role="group" aria-label="Provider presets">
-        <button type="button" data-preset="openrouter">OpenRouter</button>
-        <button type="button" data-preset="siliconflow">SiliconFlow</button>
-        <button type="button" data-preset="deepseek">DeepSeek</button>
-      </div>
-
-      <label>Base URL
-        <input id="baseUrl" autocomplete="off" spellcheck="false" placeholder="https://openrouter.ai/api/v1" />
-      </label>
-      <label>Model
-        <input id="model" autocomplete="off" spellcheck="false" placeholder="deepseek-chat / openai/gpt-4.1 / ..." />
-      </label>
-      <label>API Key
-        <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="只用于本次请求" />
-      </label>
-      <label class="checkbox">
-        <input id="rememberTab" type="checkbox" />
-        <span>本标签页记住配置（sessionStorage，不跨标签页）</span>
-      </label>
-    </section>
-
-    <section class="panel input-panel">
-      <div class="panel-head">
-        <span class="step">3</span>
-        <div>
-          <h2>粘贴事实或文本</h2>
-          <p>不上传文件；请自行粘贴已提取的合同、事实、制度或法规文本。</p>
-        </div>
-      </div>
-      <textarea id="userInput" rows="14" placeholder="例如：请审查一份供应商 SaaS 合同，系统会处理中国境内用户个人信息，并向境外总部同步……"></textarea>
-      <div class="actions">
-        <button id="fillExample" type="button" class="secondary">填入示例</button>
-        <button id="clearAll" type="button" class="secondary danger">清空本页数据</button>
-        <button id="generate" type="button" class="primary">生成律师复核草稿</button>
-      </div>
-      <p id="status" class="status" role="status"></p>
-    </section>
-
-    <section class="panel output-panel">
-      <div class="panel-head">
-        <span class="step">4</span>
-        <div>
-          <h2>输出</h2>
-          <p>Markdown 草稿。复制前请先阅读律师复核提示。</p>
-        </div>
-      </div>
-      <div class="output-actions">
-        <button id="copyOutput" type="button" class="secondary">复制 Markdown</button>
-      </div>
-      <article id="output" class="markdown-output">等待生成。</article>
-    </section>
-  </main>
-
-  <footer>
-    <p>默认法域：中国大陆 / PRC。无账号、无数据库、无服务器端留存。模型由用户自带 API Key 调用。</p>
-  </footer>
+    <div class="drawer-warning">不要把 API Key 发给同事、客户或截图；怀疑泄露时立即删除并重建。</div>
+  </aside>
 
   <script src="/app.js" type="module"></script>
 </body>
