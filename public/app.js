@@ -5,8 +5,11 @@ const PRESETS = {
 };
 
 const state = {
+  mode: "demo",
   scenarios: [],
+  skills: [],
   selectedScenarioId: null,
+  selectedSkillId: null,
   apiKeyMemory: ""
 };
 
@@ -20,8 +23,47 @@ function selectedScenario() {
   return state.scenarios.find((scenario) => scenario.id === state.selectedScenarioId) || state.scenarios[0];
 }
 
+function selectedSkill() {
+  return state.skills.find((skill) => skill.id === state.selectedSkillId) || filteredSkills()[0] || state.skills[0];
+}
+
+function activeTarget() {
+  return state.mode === "expert" ? selectedSkill() : selectedScenario();
+}
+
+function setMode(mode) {
+  state.mode = mode;
+  $("demoMode").classList.toggle("active", mode === "demo");
+  $("expertMode").classList.toggle("active", mode === "expert");
+  $("expertControls").classList.toggle("hidden", mode !== "expert");
+  $("selectorTitle").textContent = mode === "expert" ? "选择技能" : "选择场景";
+  $("selectorHint").textContent = mode === "expert"
+    ? "专家模式显示律师实务技能，可按领域和关键词筛选。"
+    : "演示模式提供精选高频场景，适合快速试用。";
+  renderSelector();
+  updateInputPlaceholder();
+}
+
+function updateInputPlaceholder() {
+  if (state.mode === "expert") {
+    const skill = selectedSkill();
+    $("userInput").placeholder = skill
+      ? `请粘贴要交给「${skill.title}」技能处理的事实、合同条款、制度文本或问题。`
+      : "请先选择一个专家技能。";
+    return;
+  }
+
+  const scenario = selectedScenario();
+  if (scenario) $("userInput").placeholder = scenario.examplePrompt;
+}
+
+function renderSelector() {
+  if (state.mode === "expert") return renderSkills();
+  return renderScenarios();
+}
+
 function renderScenarios() {
-  const list = $("scenarioList");
+  const list = $("selectorList");
   list.innerHTML = "";
   for (const scenario of state.scenarios) {
     const card = document.createElement("button");
@@ -34,9 +76,66 @@ function renderScenarios() {
     card.addEventListener("click", () => {
       state.selectedScenarioId = scenario.id;
       renderScenarios();
-      $("userInput").placeholder = scenario.examplePrompt;
+      updateInputPlaceholder();
     });
     list.appendChild(card);
+  }
+}
+
+function filteredSkills() {
+  const query = $("skillSearch").value.trim().toLowerCase();
+  const practiceArea = $("practiceFilter").value;
+  return state.skills.filter((skill) => {
+    const matchesPractice = !practiceArea || skill.practiceArea === practiceArea;
+    const haystack = `${skill.title} ${skill.practiceArea} ${skill.pluginTitle} ${skill.skillPath} ${skill.description} ${skill.keywords}`.toLowerCase();
+    const matchesQuery = !query || haystack.includes(query);
+    return matchesPractice && matchesQuery;
+  });
+}
+
+function renderSkills() {
+  const list = $("selectorList");
+  const skills = filteredSkills();
+  list.innerHTML = "";
+
+  if (!skills.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty-state";
+    empty.textContent = "没有匹配的技能。请调整搜索词或领域筛选。";
+    list.appendChild(empty);
+    return;
+  }
+
+  if (!skills.some((skill) => skill.id === state.selectedSkillId)) {
+    state.selectedSkillId = skills[0].id;
+  }
+
+  for (const skill of skills) {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = `scenario-card skill-card${skill.id === state.selectedSkillId ? " active" : ""}`;
+    card.innerHTML = `<span></span><b></b><p></p><small></small>`;
+    card.querySelector("span").textContent = `${skill.practiceArea} · ${skill.pluginTitle}`;
+    card.querySelector("b").textContent = skill.title;
+    card.querySelector("p").textContent = skill.description;
+    card.querySelector("small").textContent = skill.skillPath;
+    card.addEventListener("click", () => {
+      state.selectedSkillId = skill.id;
+      renderSkills();
+      updateInputPlaceholder();
+    });
+    list.appendChild(card);
+  }
+}
+
+function populatePracticeFilter() {
+  const select = $("practiceFilter");
+  const areas = [...new Set(state.skills.map((skill) => skill.practiceArea))].sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
+  for (const area of areas) {
+    const option = document.createElement("option");
+    option.value = area;
+    option.textContent = area;
+    select.appendChild(option);
   }
 }
 
@@ -86,23 +185,30 @@ async function loadScenarios() {
   const data = await response.json();
   state.scenarios = data.scenarios || [];
   state.selectedScenarioId = state.scenarios[0]?.id || null;
-  renderScenarios();
-  if (state.scenarios[0]) $("userInput").placeholder = state.scenarios[0].examplePrompt;
+}
+
+async function loadSkills() {
+  const response = await fetch("/api/skills", { cache: "no-store" });
+  const data = await response.json();
+  state.skills = data.skills || [];
+  state.selectedSkillId = state.skills[0]?.id || null;
+  populatePracticeFilter();
 }
 
 async function generate() {
-  const scenario = selectedScenario();
-  if (!scenario) return setStatus("未找到可用场景。");
+  const target = activeTarget();
+  if (!target) return setStatus(state.mode === "expert" ? "未找到可用技能。" : "未找到可用场景。");
   state.apiKeyMemory = $("apiKey").value;
   saveSessionIfRequested();
 
   const payload = {
-    scenarioId: scenario.id,
     baseUrl: $("baseUrl").value,
     model: $("model").value,
     apiKey: state.apiKeyMemory,
     userInput: $("userInput").value
   };
+  if (state.mode === "expert") payload.skillId = target.id;
+  else payload.scenarioId = target.id;
 
   setStatus("正在调用你配置的模型服务……");
   $("generate").disabled = true;
@@ -129,7 +235,30 @@ async function copyOutput() {
   setStatus("已复制 Markdown。仍需律师复核。");
 }
 
+function fillExample() {
+  if (state.mode === "expert") {
+    const skill = selectedSkill();
+    if (skill) {
+      $("userInput").value = `请使用「${skill.title}」技能处理以下事项，并输出供中国律师复核的结构化草稿：\n\n【事实/文本】\n（在此粘贴合同条款、事项背景、制度文本、监管文件或问题）`;
+    }
+    return;
+  }
+  const scenario = selectedScenario();
+  if (scenario) $("userInput").value = scenario.examplePrompt;
+}
+
 function bindEvents() {
+  document.querySelectorAll("[data-mode]").forEach((button) => {
+    button.addEventListener("click", () => setMode(button.dataset.mode));
+  });
+  $("skillSearch").addEventListener("input", () => {
+    renderSkills();
+    updateInputPlaceholder();
+  });
+  $("practiceFilter").addEventListener("change", () => {
+    renderSkills();
+    updateInputPlaceholder();
+  });
   document.querySelectorAll("[data-preset]").forEach((button) => {
     button.addEventListener("click", () => {
       const preset = PRESETS[button.dataset.preset];
@@ -145,10 +274,7 @@ function bindEvents() {
   $("baseUrl").addEventListener("input", saveSessionIfRequested);
   $("model").addEventListener("input", saveSessionIfRequested);
   $("rememberTab").addEventListener("change", saveSessionIfRequested);
-  $("fillExample").addEventListener("click", () => {
-    const scenario = selectedScenario();
-    if (scenario) $("userInput").value = scenario.examplePrompt;
-  });
+  $("fillExample").addEventListener("click", fillExample);
   $("clearAll").addEventListener("click", clearAll);
   $("generate").addEventListener("click", generate);
   $("copyOutput").addEventListener("click", copyOutput);
@@ -156,4 +282,9 @@ function bindEvents() {
 
 restoreSession();
 bindEvents();
-loadScenarios().catch((error) => setStatus(error.message || String(error)));
+Promise.all([loadScenarios(), loadSkills()])
+  .then(() => {
+    renderSelector();
+    updateInputPlaceholder();
+  })
+  .catch((error) => setStatus(error.message || String(error)));

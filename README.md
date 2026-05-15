@@ -2,13 +2,7 @@
 
 A standalone BYOK online tool for trying China-localized legal skills in a browser.
 
-This repository is designed to live separately from `claude-for-legal-cn`. In this delivery scaffold it sits under `deliveries/` because the current sandbox cannot create the sibling repo directly. Move this folder to:
-
-```text
-/Users/hezhiheng/src/claude-for-legal-cn-online
-```
-
-Then run the bootstrap script to initialize Git and attach the skills repo as a submodule.
+The app is separate from `claude-for-legal-cn` and consumes that skills repository through a pinned Git submodule at `vendor/claude-for-legal-cn`.
 
 ## What It Does
 
@@ -19,11 +13,45 @@ Then run the bootstrap script to initialize Git and attach the skills repo as a 
 - Text/paste-only MVP; no file upload.
 - Cloudflare Workers + Static Assets deployment target.
 
-## Quick Start After Moving
+## Modes
+
+### Demo Mode / 演示模式
+
+Demo Mode keeps the original 8 curated scenarios for quick trial, including commercial contract review, PIPL rights requests, equity diligence, employment termination, litigation evidence planning, IP platform complaints, AI product launch review, and regulatory gap analysis.
+
+Use this mode when a lawyer wants a guided starting point without choosing a specific underlying skill.
+
+### Expert Mode / 专家模式
+
+Expert Mode exposes lawyer-facing practice skills generated from the pinned `claude-for-legal-cn` submodule.
+
+Included practice plugins:
+
+- `commercial-legal`
+- `corporate-legal`
+- `privacy-legal`
+- `litigation-legal`
+- `regulatory-legal`
+- `employment-legal`
+- `ip-legal`
+- `product-legal`
+- `ai-governance-legal`
+
+Hidden from Expert Mode by default:
+
+- builder/admin/student/external plugins;
+- setup/internal skills such as `customize`, `matter-workspace`, and `cold-start-interview`.
+
+After updating the skills submodule, regenerate the static catalog and prompt contexts:
+
+```bash
+npm run generate:contexts
+```
+
+## Quick Start
 
 ```bash
 cd /Users/hezhiheng/src/claude-for-legal-cn-online
-bash scripts/bootstrap-submodule.sh
 npm install
 npm test
 npm run dev
@@ -42,19 +70,24 @@ Open the local URL printed by Wrangler.
 
 ### `GET /api/scenarios`
 
-Returns curated scenario metadata:
+Returns curated Demo Mode scenario metadata.
+
+### `GET /api/skills`
+
+Returns Expert Mode skill metadata only. It does not return full skill prompt text.
 
 ```json
 {
-  "scenarios": [
+  "skills": [
     {
-      "id": "commercial_saas_data_export",
-      "title": "商事合同审查",
+      "id": "commercial_legal__review",
+      "title": "Review",
       "practiceArea": "商事合同",
-      "description": "SaaS/采购合同，重点关注数据出境与责任限制。",
-      "examplePrompt": "...",
+      "plugin": "commercial-legal",
+      "pluginTitle": "Commercial Legal",
       "skillPath": "commercial-legal/skills/review/SKILL.md",
-      "referencePaths": ["references/china-legal-foundation.md"]
+      "description": "...",
+      "keywords": "..."
     }
   ]
 }
@@ -62,7 +95,7 @@ Returns curated scenario metadata:
 
 ### `POST /api/chat`
 
-Request:
+Demo Mode request:
 
 ```json
 {
@@ -74,14 +107,27 @@ Request:
 }
 ```
 
+Expert Mode request:
+
+```json
+{
+  "skillId": "commercial_legal__review",
+  "baseUrl": "https://api.deepseek.com/v1",
+  "model": "deepseek-chat",
+  "apiKey": "sk-...",
+  "userInput": "请审查以下合同条款..."
+}
+```
+
 Response:
 
 ```json
 {
   "content": "...markdown...",
-  "provider": "custom",
-  "model": "openai/gpt-4.1",
-  "scenarioId": "commercial_saas_data_export"
+  "provider": "openai-compatible",
+  "model": "deepseek-chat",
+  "targetKind": "skill",
+  "skillId": "commercial_legal__review"
 }
 ```
 
@@ -91,7 +137,7 @@ Response:
 npm run deploy
 ```
 
-The default deployment target is Cloudflare Workers + Static Assets.
+The default deployment target is Cloudflare Workers + Static Assets. `predev`, `predeploy`, and `pretest` regenerate prompt contexts from the submodule.
 
 ## Legal Safety
 

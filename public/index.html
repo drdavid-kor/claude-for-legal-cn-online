@@ -15,7 +15,7 @@
     <div>
       <p class="eyebrow">BYOK · OpenAI-Compatible · No Persistence</p>
       <h1>Claude for Legal CN Online</h1>
-      <p class="lede">选择一个中国法律实务场景，填入你自己的模型 endpoint 和 API Key，在线试用本地化法律技能。</p>
+      <p class="lede">选择演示场景快速体验，或切换专家模式直接调用中国本地化法律技能。填入你自己的模型 endpoint 和 API Key，即可在线生成律师复核草稿。</p>
     </div>
   </header>
 
@@ -24,11 +24,28 @@
       <div class="panel-head">
         <span class="step">1</span>
         <div>
-          <h2>选择场景</h2>
-          <p>V1 提供精选高频场景，不展示全部 150+ 技能。</p>
+          <h2 id="selectorTitle">选择场景</h2>
+          <p id="selectorHint">演示模式提供精选高频场景；专家模式可搜索律师实务技能。</p>
         </div>
       </div>
-      <div id="scenarioList" class="scenario-list" aria-live="polite"></div>
+
+      <div class="mode-switch" role="group" aria-label="Tool mode">
+        <button id="demoMode" type="button" class="active" data-mode="demo">演示模式</button>
+        <button id="expertMode" type="button" data-mode="expert">专家模式</button>
+      </div>
+
+      <div id="expertControls" class="expert-controls hidden">
+        <label>搜索技能
+          <input id="skillSearch" autocomplete="off" spellcheck="false" placeholder="输入技能、领域、插件或关键词" />
+        </label>
+        <label>执业领域
+          <select id="practiceFilter">
+            <option value="">全部领域</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="selectorList" class="scenario-list" aria-live="polite"></div>
     </section>
 
     <section class="panel config-panel">

@@ -11,7 +11,10 @@
     "predeploy": "npm run generate:contexts",
     "deploy": "wrangler deploy",
     "test": "node test/run-tests.mjs",
-    "check": "node test/run-tests.mjs"
+    "check": "node test/run-tests.mjs",
+    "pretest": "npm run generate:contexts",
+    "precheck": "npm run generate:contexts",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "wrangler": "^4.0.0",

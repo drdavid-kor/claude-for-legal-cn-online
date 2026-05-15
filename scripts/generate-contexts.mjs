@@ -1,9 +1,45 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from "node:fs";
+import { dirname, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const scenariosSource = readFileSync(resolve(root, "src/scenarios.ts"), "utf8");
+
+const INCLUDED_PLUGINS = new Set([
+  "commercial-legal",
+  "corporate-legal",
+  "privacy-legal",
+  "litigation-legal",
+  "regulatory-legal",
+  "employment-legal",
+  "ip-legal",
+  "product-legal",
+  "ai-governance-legal"
+]);
+
+const EXCLUDED_SKILLS = new Set([
+  "customize",
+  "matter-workspace",
+  "cold-start-interview"
+]);
+
+const PLUGIN_LABELS = {
+  "commercial-legal": { practiceArea: "商事合同", pluginTitle: "Commercial Legal" },
+  "corporate-legal": { practiceArea: "公司与并购", pluginTitle: "Corporate Legal" },
+  "privacy-legal": { practiceArea: "数据合规与隐私", pluginTitle: "Privacy Legal" },
+  "litigation-legal": { practiceArea: "争议解决", pluginTitle: "Litigation Legal" },
+  "regulatory-legal": { practiceArea: "监管合规", pluginTitle: "Regulatory Legal" },
+  "employment-legal": { practiceArea: "劳动人事", pluginTitle: "Employment Legal" },
+  "ip-legal": { practiceArea: "知识产权", pluginTitle: "IP Legal" },
+  "product-legal": { practiceArea: "产品合规", pluginTitle: "Product Legal" },
+  "ai-governance-legal": { practiceArea: "人工智能治理", pluginTitle: "AI Governance Legal" }
+};
+
+const sharedRefs = [
+  "references/china-legal-foundation.md",
+  "references/china-source-catalog.md",
+  "references/china-plugin-workflow-map.md"
+];
 
 function findSkillsRoot() {
   const envPath = process.env.CLAUDE_FOR_LEGAL_CN_PATH;
@@ -15,29 +51,99 @@ function findSkillsRoot() {
   return candidates.find((candidate) => existsSync(resolve(candidate, "references/china-legal-foundation.md")));
 }
 
+function toId(...parts) {
+  return parts
+    .join("__")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function humanizeSkillName(slug) {
+  return slug
+    .split("-")
+    .map((part) => {
+      const upper = part.toUpperCase();
+      if (["ai", "ip", "oss", "dpa", "dsar", "pia", "msa", "nda", "qa", "fto"].includes(part)) return upper;
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    })
+    .join(" ");
+}
+
+function walkSkillFiles(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir)) {
+    const full = resolve(dir, entry);
+    const stat = statSync(full);
+    if (stat.isDirectory()) out.push(...walkSkillFiles(full));
+    if (stat.isFile() && entry === "SKILL.md") out.push(full);
+  }
+  return out;
+}
+
+
+function buildExpertSkills(skillsRoot) {
+  return walkSkillFiles(skillsRoot)
+    .map((fullPath) => {
+      const skillPath = relative(skillsRoot, fullPath).replaceAll("\\\\", "/");
+      const parts = skillPath.split("/");
+      const plugin = parts[0];
+      const skillSlug = parts[2];
+      if (!INCLUDED_PLUGINS.has(plugin) || EXCLUDED_SKILLS.has(skillSlug)) return null;
+
+      const labels = PLUGIN_LABELS[plugin];
+      const title = humanizeSkillName(skillSlug);
+      return {
+        id: toId(plugin, skillSlug),
+        title,
+        practiceArea: labels.practiceArea,
+        plugin,
+        pluginTitle: labels.pluginTitle,
+        skillPath,
+        description: `使用 ${title} 技能处理中国大陆${labels.practiceArea}工作流；请粘贴事实或文本，系统将输出供律师复核的草稿。`,
+        keywords: [
+          title,
+          skillSlug,
+          plugin,
+          labels.practiceArea,
+          labels.pluginTitle,
+          skillPath,
+          "中国大陆",
+          "PRC",
+          "律师复核"
+        ].join(" ")
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => `${a.practiceArea}-${a.title}`.localeCompare(`${b.practiceArea}-${b.title}`, "zh-Hans-CN"));
+}
+
 const skillsRoot = findSkillsRoot();
 if (!skillsRoot) {
   throw new Error("Cannot find claude-for-legal-cn skills repo. Add submodule or set CLAUDE_FOR_LEGAL_CN_PATH.");
 }
 
 const scenarioMatches = [...scenariosSource.matchAll(/id: "([^"]+)"[\s\S]*?skillPath: "([^"]+)"[\s\S]*?referencePaths: \[\.\.\.SHARED_REFERENCE_PATHS\]/g)];
-const sharedRefs = [
-  "references/china-legal-foundation.md",
-  "references/china-source-catalog.md",
-  "references/china-plugin-workflow-map.md"
-];
+const expertSkills = buildExpertSkills(skillsRoot);
+
+const sharedContext = sharedRefs
+  .map((ref) => `\n\n# Reference: ${ref}\n${readFileSync(resolve(skillsRoot, ref), "utf8")}`)
+  .join("\n");
 
 const contexts = {};
 for (const [, id, skillPath] of scenarioMatches) {
-  const parts = [];
-  for (const ref of sharedRefs) {
-    parts.push(`\n\n# Reference: ${ref}\n${readFileSync(resolve(skillsRoot, ref), "utf8")}`);
-  }
-  parts.push(`\n\n# Skill: ${skillPath}\n${readFileSync(resolve(skillsRoot, skillPath), "utf8")}`);
-  contexts[id] = parts.join("\n");
+  contexts[id] = `\n\n# Skill: ${skillPath}\n${readFileSync(resolve(skillsRoot, skillPath), "utf8")}`;
+}
+for (const skill of expertSkills) {
+  contexts[skill.id] = `\n\n# Skill: ${skill.skillPath}\n${readFileSync(resolve(skillsRoot, skill.skillPath), "utf8")}`;
 }
 
-const output = `// Generated by scripts/generate-contexts.mjs. Do not edit by hand.\nexport const SKILL_CONTEXTS: Record<string, string> = ${JSON.stringify(contexts, null, 2)};\n`;
 mkdirSync(resolve(root, "src/generated"), { recursive: true });
-writeFileSync(resolve(root, "src/generated/skill-contexts.ts"), output);
-console.log(`Generated contexts for ${Object.keys(contexts).length} scenarios from ${skillsRoot}`);
+
+const contextOutput = `// Generated by scripts/generate-contexts.mjs. Do not edit by hand.\nexport const SHARED_CONTEXT = ${JSON.stringify(sharedContext)};\n\nexport const SKILL_CONTEXTS: Record<string, string> = ${JSON.stringify(contexts, null, 2)};\n`;
+writeFileSync(resolve(root, "src/generated/skill-contexts.ts"), contextOutput);
+
+const skillsOutput = `// Generated by scripts/generate-contexts.mjs. Do not edit by hand.\nexport type ExpertSkill = {\n  id: string;\n  title: string;\n  practiceArea: string;\n  plugin: string;\n  pluginTitle: string;\n  skillPath: string;\n  description: string;\n  keywords: string;\n};\n\nexport const EXPERT_SKILLS: ExpertSkill[] = ${JSON.stringify(expertSkills, null, 2)};\n\nexport function getExpertSkill(id: string): ExpertSkill | undefined {\n  return EXPERT_SKILLS.find((skill) => skill.id === id);\n}\n`;
+writeFileSync(resolve(root, "src/generated/expert-skills.ts"), skillsOutput);
+
+console.log(`Generated ${scenarioMatches.length} scenario contexts and ${expertSkills.length} expert skills from ${skillsRoot}`);

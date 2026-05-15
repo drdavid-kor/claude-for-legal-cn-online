@@ -1,5 +1,6 @@
 import type { Scenario } from "./scenarios";
-import { SKILL_CONTEXTS } from "./generated/skill-contexts";
+import type { ExpertSkill } from "./generated/expert-skills";
+import { SHARED_CONTEXT, SKILL_CONTEXTS } from "./generated/skill-contexts";
 
 export const ONLINE_SAFETY_WRAPPER = `
 你是 Claude for Legal CN Online 的法律工作流助手。必须遵守以下规则：
@@ -13,14 +14,35 @@ export const ONLINE_SAFETY_WRAPPER = `
 7. 如用户事实不足，先列出关键补充事实；可以在合理假设下给出初步分析，但必须标注假设。
 `;
 
-export function buildSystemPrompt(scenario: Scenario): string {
-  return `${ONLINE_SAFETY_WRAPPER}\n\n当前场景：${scenario.title}\n执业领域：${scenario.practiceArea}\n场景说明：${scenario.description}\n\n以下是该场景对应的共享中国法基础、来源目录、工作流映射和技能说明，请作为优先指令使用：
+const REQUIRED_OUTPUT = `输出必须包含：
+- 律师复核提示
+- 事实和假设
+- 初步分析
+- 风险/缺口清单
+- 法律依据与来源时效提示
+- 建议的下一步
+- 不得对外依赖的提示`;
 
-${SKILL_CONTEXTS[scenario.id] || ""}
-
-请按照该场景对应的中国本地化技能工作流输出。输出必须包含：\n- 律师复核提示\n- 事实和假设\n- 初步分析\n- 风险/缺口清单\n- 建议的下一步\n- 不得对外依赖的提示\n`;
+function targetContext(id: string): string {
+  return `${SHARED_CONTEXT}\n\n${SKILL_CONTEXTS[id] || ""}`;
 }
 
-export function buildUserPrompt(scenario: Scenario, userInput: string): string {
+export function buildSystemPromptForScenario(scenario: Scenario): string {
+  return `${ONLINE_SAFETY_WRAPPER}\n\n当前模式：演示模式\n当前场景：${scenario.title}\n执业领域：${scenario.practiceArea}\n场景说明：${scenario.description}\n\n以下是该场景对应的共享中国法基础、来源目录、工作流映射和技能说明，请作为优先指令使用：\n\n${targetContext(scenario.id)}\n\n请按照该场景对应的中国本地化技能工作流输出。${REQUIRED_OUTPUT}\n`;
+}
+
+export function buildSystemPromptForSkill(skill: ExpertSkill): string {
+  return `${ONLINE_SAFETY_WRAPPER}\n\n当前模式：专家模式\n当前技能：${skill.title}\n执业领域：${skill.practiceArea}\n插件：${skill.pluginTitle}\n技能路径：${skill.skillPath}\n技能说明：${skill.description}\n\n以下是该技能对应的共享中国法基础、来源目录、工作流映射和技能说明，请作为优先指令使用：\n\n${targetContext(skill.id)}\n\n请按照该专家技能对应的中国本地化工作流输出。${REQUIRED_OUTPUT}\n`;
+}
+
+export function buildUserPromptForScenario(scenario: Scenario, userInput: string): string {
   return `用户选择的场景：${scenario.title}\n\n用户提供的事实/文本：\n${userInput}\n\n请基于中国大陆法域默认规则生成律师复核草稿。`;
 }
+
+export function buildUserPromptForSkill(skill: ExpertSkill, userInput: string): string {
+  return `用户选择的专家技能：${skill.title}\n技能路径：${skill.skillPath}\n\n用户提供的事实/文本：\n${userInput}\n\n请基于中国大陆法域默认规则和该技能工作流生成律师复核草稿。`;
+}
+
+// Backward-compatible aliases for the original demo-scenario flow.
+export const buildSystemPrompt = buildSystemPromptForScenario;
+export const buildUserPrompt = buildUserPromptForScenario;
