@@ -33,6 +33,15 @@ type ValidatedChatRequest = {
   userInput: string;
 };
 
+type ProviderChatResponse = {
+  choices?: Array<{
+    message?: { content?: string };
+    delta?: { content?: string };
+    text?: string;
+  }>;
+  error?: { message?: string } | string;
+};
+
 const MAX_INPUT_CHARS = 120_000;
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -108,6 +117,35 @@ function validateChatRequest(body: ChatRequest): ValidatedChatRequest {
   };
 }
 
+function parseProviderJson(responseText: string): ProviderChatResponse {
+  const trimmed = responseText.trim();
+  if (!trimmed) {
+    throw new Error("模型服务返回空响应；请检查 Base URL、模型名称、API Key 权限、账户余额或供应商服务状态");
+  }
+
+  try {
+    return JSON.parse(trimmed) as ProviderChatResponse;
+  } catch {
+    throw new Error(`模型服务返回了非 JSON 响应：${sanitizeError(trimmed)}`);
+  }
+}
+
+function extractProviderContent(providerJson: ProviderChatResponse): string {
+  const providerError = typeof providerJson.error === "string" ? providerJson.error : providerJson.error?.message;
+  if (providerError) throw new Error(`模型服务返回错误：${providerError}`);
+
+  const content = providerJson.choices
+    ?.map((choice) => choice.message?.content || choice.delta?.content || choice.text || "")
+    .join("")
+    .trim() || "";
+
+  if (!content) {
+    throw new Error("模型服务未返回可显示内容；请检查模型名称是否支持 chat/completions，以及供应商是否返回 OpenAI-compatible 格式");
+  }
+
+  return content;
+}
+
 function buildProviderMessages(validated: ValidatedChatRequest) {
   if (validated.targetKind === "skill") {
     const skill = getExpertSkill(validated.targetId)!;
@@ -160,9 +198,12 @@ async function handleChat(request: Request): Promise<Response> {
       return json({ error: `模型服务返回错误：${providerResponse.status} ${sanitizeError(responseText)}` }, 502);
     }
 
-    const providerJson = JSON.parse(responseText) as { choices?: Array<{ message?: { content?: string } }> };
-    const content = providerJson.choices?.[0]?.message?.content || "";
-    if (!content) return json({ error: "模型服务未返回可显示内容" }, 502);
+    let content: string;
+    try {
+      content = extractProviderContent(parseProviderJson(responseText));
+    } catch (error) {
+      return json({ error: sanitizeError(error) }, 502);
+    }
 
     return json({
       content,
