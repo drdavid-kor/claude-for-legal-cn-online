@@ -215,8 +215,12 @@ async function generate() {
   }
 }
 
+function currentOutputText() {
+  return $("output").textContent || "";
+}
+
 async function copyOutput() {
-  await navigator.clipboard.writeText($("output").textContent || "");
+  await navigator.clipboard.writeText(currentOutputText());
   setStatus("已复制 Markdown。仍需律师复核。");
 }
 
@@ -228,17 +232,12 @@ function safeFilenamePart(value) {
     .slice(0, 80) || "legal-output";
 }
 
-function saveOutputAsMarkdown() {
-  const skill = selectedSkill();
-  const content = $("output").textContent || "";
-  if (!content.trim() || content.trim() === "生成失败。" || content.includes("等待生成")) {
-    setStatus("暂无可保存的输出。请先生成结果。");
-    return;
-  }
+function outputIsDownloadable(content) {
+  const trimmed = content.trim();
+  return Boolean(trimmed) && trimmed !== "生成失败。" && !trimmed.includes("等待生成");
+}
 
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const filename = `${safeFilenamePart(skill?.title || "legal-output")}-${timestamp}.md`;
-  const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
+function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -247,7 +246,262 @@ function saveOutputAsMarkdown() {
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
-  setStatus("已下载 Markdown。仍需律师复核。 ");
+}
+
+function markdownBlob(content) {
+  return new Blob([content], { type: "text/markdown;charset=utf-8" });
+}
+
+function xmlEscape(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function markdownToDocxParagraphs(content) {
+  return content.split(/\r?\n/).map((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) return "<w:p/>";
+    const heading = trimmed.match(/^(#{1,3})\s+(.+)$/);
+    const bullet = trimmed.match(/^[-*]\s+(.+)$/);
+    const numbered = trimmed.match(/^\d+[.)]\s+(.+)$/);
+    const text = heading?.[2] || bullet?.[1] || numbered?.[1] || trimmed;
+    const bold = Boolean(heading);
+    const prefix = bullet ? "• " : numbered ? "- " : "";
+    return `<w:p><w:r>${bold ? "<w:rPr><w:b/></w:rPr>" : ""}<w:t xml:space="preserve">${xmlEscape(prefix + text)}</w:t></w:r></w:p>`;
+  }).join("");
+}
+
+function crc32(bytes) {
+  let crc = 0xffffffff;
+  for (const byte of bytes) {
+    crc ^= byte;
+    for (let i = 0; i < 8; i += 1) crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function u16(value) {
+  return new Uint8Array([value & 255, (value >>> 8) & 255]);
+}
+
+function u32(value) {
+  return new Uint8Array([value & 255, (value >>> 8) & 255, (value >>> 16) & 255, (value >>> 24) & 255]);
+}
+
+function concatBytes(parts) {
+  const size = parts.reduce((sum, part) => sum + part.length, 0);
+  const out = new Uint8Array(size);
+  let offset = 0;
+  for (const part of parts) {
+    out.set(part, offset);
+    offset += part.length;
+  }
+  return out;
+}
+
+function zipStore(files) {
+  const encoder = new TextEncoder();
+  const localParts = [];
+  const centralParts = [];
+  let offset = 0;
+
+  for (const file of files) {
+    const nameBytes = encoder.encode(file.name);
+    const dataBytes = typeof file.data === "string" ? encoder.encode(file.data) : file.data;
+    const crc = crc32(dataBytes);
+    const localHeader = concatBytes([
+      u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0),
+      u32(crc), u32(dataBytes.length), u32(dataBytes.length), u16(nameBytes.length), u16(0), nameBytes
+    ]);
+    localParts.push(localHeader, dataBytes);
+
+    const centralHeader = concatBytes([
+      u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0),
+      u32(crc), u32(dataBytes.length), u32(dataBytes.length), u16(nameBytes.length), u16(0), u16(0),
+      u16(0), u16(0), u32(0), u32(offset), nameBytes
+    ]);
+    centralParts.push(centralHeader);
+    offset += localHeader.length + dataBytes.length;
+  }
+
+  const centralDirectory = concatBytes(centralParts);
+  const end = concatBytes([
+    u32(0x06054b50), u16(0), u16(0), u16(files.length), u16(files.length),
+    u32(centralDirectory.length), u32(offset), u16(0)
+  ]);
+  return concatBytes([...localParts, centralDirectory, end]);
+}
+
+function docxBlob(content) {
+  const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${markdownToDocxParagraphs(content)}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440"/></w:sectPr></w:body></w:document>`;
+  const files = [
+    { name: "[Content_Types].xml", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>` },
+    { name: "_rels/.rels", data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>` },
+    { name: "word/document.xml", data: documentXml }
+  ];
+  return new Blob([zipStore(files)], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const chars = Array.from(text);
+  const lines = [];
+  let line = "";
+  for (const char of chars) {
+    const next = line + char;
+    if (ctx.measureText(next).width > maxWidth && line) {
+      lines.push(line);
+      line = char;
+    } else {
+      line = next;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function renderPdfPages(content) {
+  const pages = [];
+  const canvas = document.createElement("canvas");
+  canvas.width = 1240;
+  canvas.height = 1754;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("当前浏览器无法创建 PDF 画布。请改用 MD 或 DOCX 下载。");
+  const margin = 88;
+  const maxWidth = canvas.width - margin * 2;
+  const lineHeight = 36;
+  const maxY = canvas.height - 92;
+  let y = margin;
+
+  function newPage() {
+    ctx.fillStyle = "#fffdf8";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#9d1f1f";
+    ctx.font = '700 24px "PingFang SC", "Microsoft YaHei", sans-serif';
+    ctx.fillText("Claude for Legal CN Online · 律师复核草稿", margin, 48);
+    ctx.fillStyle = "#211b16";
+    ctx.font = '26px "PingFang SC", "Microsoft YaHei", sans-serif';
+    y = margin;
+  }
+
+  function commitPage() {
+    pages.push(canvas.toDataURL("image/jpeg", 0.92));
+  }
+
+  newPage();
+  for (const rawLine of content.split(/\r?\n/)) {
+    const line = rawLine.trim() || " ";
+    if (/^#{1,3}\s+/.test(line)) {
+      ctx.font = '700 30px "PingFang SC", "Microsoft YaHei", sans-serif';
+    } else {
+      ctx.font = '26px "PingFang SC", "Microsoft YaHei", sans-serif';
+    }
+    const wrapped = wrapCanvasText(ctx, line.replace(/^#{1,3}\s+/, ""), maxWidth);
+    for (const wrappedLine of wrapped.length ? wrapped : [""]) {
+      if (y > maxY) {
+        commitPage();
+        newPage();
+      }
+      ctx.fillText(wrappedLine, margin, y);
+      y += lineHeight;
+    }
+    y += 8;
+  }
+  commitPage();
+  return pages;
+}
+
+function base64ToBytes(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+function pdfBlob(content) {
+  const pageImages = renderPdfPages(content);
+  const encoder = new TextEncoder();
+  const parts = [encoder.encode("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n")];
+  const offsets = [0];
+  const objects = [];
+  const pageObjectIds = [];
+
+  objects.push("1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n");
+  const imageObjects = [];
+  const contentObjects = [];
+  pageImages.forEach((dataUrl, index) => {
+    const imageId = 3 + index * 3;
+    const contentId = imageId + 1;
+    const pageId = imageId + 2;
+    const imageBytes = base64ToBytes(dataUrl.split(",")[1]);
+    const stream = `q 595 0 0 842 0 0 cm /Im${index} Do Q`;
+    imageObjects.push({ id: imageId, bytes: imageBytes });
+    contentObjects.push({ id: contentId, text: `${contentId} 0 obj\n<< /Length ${stream.length} >>\nstream\n${stream}\nendstream\nendobj\n` });
+    pageObjectIds.push(pageId);
+    objects.push(`${pageId} 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im${index} ${imageId} 0 R >> >> >> /Contents ${contentId} 0 R >>\nendobj\n`);
+  });
+  objects.splice(1, 0, `2 0 obj\n<< /Type /Pages /Kids [${pageObjectIds.map((id) => `${id} 0 R`).join(" ")}] /Count ${pageObjectIds.length} >>\nendobj\n`);
+
+  const allObjectEntries = [];
+  allObjectEntries.push({ id: 1, data: objects[0] });
+  allObjectEntries.push({ id: 2, data: objects[1] });
+  for (let i = 0; i < pageImages.length; i += 1) {
+    const image = imageObjects[i];
+    const content = contentObjects[i];
+    const pageText = objects[2 + i];
+    allObjectEntries.push({ id: image.id, data: `${image.id} 0 obj\n<< /Type /XObject /Subtype /Image /Width 1240 /Height 1754 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${image.bytes.length} >>\nstream\n`, binary: image.bytes, trailer: "\nendstream\nendobj\n" });
+    allObjectEntries.push({ id: content.id, data: content.text });
+    allObjectEntries.push({ id: 3 + i * 3 + 2, data: pageText });
+  }
+
+  let offset = parts[0].length;
+  for (const entry of allObjectEntries.sort((a, b) => a.id - b.id)) {
+    offsets[entry.id] = offset;
+    const head = encoder.encode(entry.data);
+    parts.push(head);
+    offset += head.length;
+    if (entry.binary) {
+      parts.push(entry.binary);
+      offset += entry.binary.length;
+    }
+    if (entry.trailer) {
+      const trailer = encoder.encode(entry.trailer);
+      parts.push(trailer);
+      offset += trailer.length;
+    }
+  }
+
+  const xrefOffset = offset;
+  const objectCount = Math.max(...allObjectEntries.map((entry) => entry.id));
+  let xref = `xref\n0 ${objectCount + 1}\n0000000000 65535 f \n`;
+  for (let i = 1; i <= objectCount; i += 1) xref += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
+  xref += `trailer\n<< /Size ${objectCount + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+  parts.push(encoder.encode(xref));
+  return new Blob(parts, { type: "application/pdf" });
+}
+
+async function saveOutput() {
+  const skill = selectedSkill();
+  const content = currentOutputText();
+  if (!outputIsDownloadable(content)) {
+    setStatus("暂无可保存的输出。请先生成结果。");
+    return;
+  }
+
+  const format = $("exportFormat").value;
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const basename = `${safeFilenamePart(skill?.title || "legal-output")}-${timestamp}`;
+  try {
+    const blob = format === "docx" ? docxBlob(content) : format === "pdf" ? pdfBlob(content) : markdownBlob(content);
+    downloadBlob(blob, `${basename}.${format}`);
+    setStatus(`已下载 ${format.toUpperCase()}。仍需律师复核。`);
+  } catch (error) {
+    setStatus(error.message || "下载失败。请改用其他格式。");
+  }
 }
 
 function fillExample() {
@@ -285,7 +539,7 @@ function bindEvents() {
   $("clearAll").addEventListener("click", clearAll);
   $("generate").addEventListener("click", generate);
   $("copyOutput").addEventListener("click", copyOutput);
-  $("saveOutput").addEventListener("click", saveOutputAsMarkdown);
+  $("saveOutput").addEventListener("click", saveOutput);
 }
 
 restoreSession();

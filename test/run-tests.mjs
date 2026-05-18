@@ -103,7 +103,11 @@ assert.match(indexSource, /input-column/, "UI renders Input column");
 assert.match(indexSource, /output-column/, "UI renders Output column");
 assert.match(indexSource, /settingsDrawer/, "UI includes Settings drawer");
 assert.match(indexSource, /File Upload/, "UI includes disabled file upload affordance");
-assert.match(indexSource, /Save As/, "UI includes Save As action");
+assert.match(indexSource, /exportFormat/, "UI includes export format selector");
+assert.match(indexSource, /MD/, "UI can export Markdown");
+assert.match(indexSource, /DOCX/, "UI can export DOCX");
+assert.match(indexSource, /PDF/, "UI can export PDF");
+assert.match(indexSource, /Download/, "UI includes download action");
 assert.match(appSource, /loadSkills/, "UI loads expert skills");
 assert.doesNotMatch(appSource, /loadScenarios|selectedScenario|setMode|demoMode|expertMode/, "UI does not use demo-mode frontend flow");
 assert.match(appSource, /filteredSkills/, "UI supports expert skill search/filter");
@@ -114,8 +118,12 @@ assert.match(appSource, /sessionStorage/, "UI supports optional session-only ret
 assert.doesNotMatch(appSource, /localStorage/, "UI must not use localStorage");
 assert.match(appSource, /clearAll/, "UI includes clear data behavior");
 assert.match(appSource, /navigator\.clipboard\.writeText/, "UI can copy markdown output");
-assert.match(appSource, /saveOutputAsMarkdown/, "UI can save markdown output");
-assert.match(appSource, /new Blob\(\[content\]/, "Save As downloads current output as Markdown");
+assert.match(appSource, /markdownBlob/, "UI can download markdown output");
+assert.match(appSource, /docxBlob/, "UI can download DOCX output");
+assert.match(appSource, /pdfBlob/, "UI can download PDF output");
+assert.match(appSource, /zipStore/, "DOCX export creates a local document package");
+assert.match(appSource, /canvas\.toDataURL\("image\/jpeg"/, "PDF export renders local PDF pages");
+assert.match(appSource, /downloadBlob/, "Download action saves the chosen output file");
 assert.match(appSource, /openSettings/, "UI opens settings drawer");
 
 assert.match(scenariosSource, /中国大陆|PRC/, "scenario source includes PRC-mainland default language");

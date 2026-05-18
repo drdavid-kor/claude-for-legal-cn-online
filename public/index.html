@@ -84,7 +84,15 @@
           </div>
           <div class="output-actions">
             <button id="copyOutput" type="button" class="secondary compact">Copy</button>
-            <button id="saveOutput" type="button" class="secondary compact">Save As</button>
+            <label class="export-format-label" aria-label="下载格式">
+              <span>格式</span>
+              <select id="exportFormat">
+                <option value="md">MD</option>
+                <option value="docx">DOCX</option>
+                <option value="pdf">PDF</option>
+              </select>
+            </label>
+            <button id="saveOutput" type="button" class="secondary compact">Download</button>
           </div>
         </div>
 
